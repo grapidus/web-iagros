@@ -15,8 +15,7 @@ export const WaveContainer = styled.div`
   height: 20vw;
   min-height: 80px;
   max-height: 370px;
-  background: url('https://iagros.com/wp-content/uploads/2024/10/background-footer-svg.svg')
-    no-repeat center center;
+  background: url('/images/backgrounds/footer-wave.svg') no-repeat center center;
   background-size: cover;
   margin-bottom: -1px;
 `;
@@ -48,47 +47,66 @@ export const FooterWrapper = styled.div`
   }
 `;
 
-export const FooterSection = styled.div`
-  h3 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: white;
-  }
+export const FooterSection = styled.div``;
 
-  p {
-    margin: 8px 0;
-    line-height: 1.6;
-    font-size: 14px;
-  }
+export const FooterTitle = styled.h3`
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: white;
+`;
 
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+export const FooterText = styled.p`
+  margin: 8px 0;
+  line-height: 1.6;
+  font-size: 14px;
+`;
 
-    li {
-      margin-bottom: 12px;
+export const FooterList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`;
 
-      a {
-        color: white;
-        text-decoration: none;
-        font-size: 14px;
-        transition: opacity 0.3s ease;
+export const FooterListItem = styled.li`
+  margin-bottom: 12px;
+`;
 
-        &:hover {
-          opacity: 0.8;
-        }
-      }
-    }
+export const FooterLink = styled.a`
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.8;
   }
 `;
 
-export const LogoSection = styled(FooterSection)`
-  img {
-    max-width: 150px;
-    height: auto;
-    margin-bottom: 15px;
+export const LogoImage = styled.img`
+  max-width: 250px;
+  height: auto;
+  margin-bottom: 15px;
+`;
+
+export const ContactLink = styled.a`
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+export const SocialIcon = styled.img`
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+
+  @media ${device.sm} {
+    width: 30px;
+    height: 30px;
   }
 `;
 
@@ -101,25 +119,14 @@ export const SocialIcons = styled.div`
   @media ${device.sm} {
     gap: 15px;
   }
+`;
 
-  a {
-    display: inline-block;
-    transition: transform 0.3s ease;
+export const SocialLink = styled.a`
+  display: inline-block;
+  transition: transform 0.3s ease;
 
-    &:hover {
-      transform: scale(1.1);
-    }
-
-    img {
-      width: 25px;
-      height: 25px;
-      object-fit: contain;
-
-      @media ${device.sm} {
-        width: 30px;
-        height: 30px;
-      }
-    }
+  &:hover {
+    transform: scale(1.1);
   }
 `;
 
@@ -145,12 +152,12 @@ export const FooterBottom = styled.div`
   margin-top: 30px;
   padding-top: 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
+`;
 
-  p {
-    margin: 0;
-    font-size: 12px;
-    opacity: 0.8;
-  }
+export const CopyrightText = styled.p`
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.8;
 `;
 
 export const TermsLinks = styled.div`
@@ -165,16 +172,16 @@ export const TermsLinks = styled.div`
     justify-content: center;
     gap: 20px;
   }
+`;
 
-  a {
-    color: white;
-    text-decoration: none;
-    font-size: 12px;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
+export const TermsLink = styled.a`
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
 
-    &:hover {
-      opacity: 1;
-    }
+  &:hover {
+    opacity: 1;
   }
 `;
