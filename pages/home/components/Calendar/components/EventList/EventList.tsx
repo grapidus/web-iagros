@@ -1,12 +1,12 @@
 import React from 'react';
 import { GoLocation } from 'react-icons/go';
-import { Event } from '../Calendar';
+import { Event } from '../../Calendar';
 import {
   EventItem,
   EventListContainer,
   EventListHeader,
   NoEventsMessage
-} from '../styles/Calendar.styles';
+} from './styles/EventList.styles';
 
 interface EventListProps {
   events: Event[];

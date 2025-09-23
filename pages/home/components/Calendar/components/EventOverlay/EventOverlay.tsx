@@ -1,7 +1,6 @@
 import React from 'react';
 import { EventBar } from './styles/EventOverlay.styles';
 
-// Importar la interfaz Event
 export interface Event {
   id: number;
   title: string;
@@ -19,17 +18,12 @@ interface EventOverlayProps {
   onEventClick: (event: Event) => void;
 }
 
-/**
- * Este componente renderiza eventos directamente dentro de las celdas del calendario
- * en lugar de usar un overlay con posicionamiento absoluto.
- */
 const EventOverlay: React.FC<EventOverlayProps> = ({
   events,
   currentMonth,
   currentYear,
   onEventClick
 }) => {
-  // Agrupar eventos por día para que puedan ser insertados en las celdas correspondientes
   const getEventsForDay = (day: number, isCurrentMonth: boolean): Event[] => {
     if (!isCurrentMonth) return [];
 

@@ -4,7 +4,7 @@ import {
   CalendarControls,
   CalendarHeaderContainer,
   MonthYearDisplay
-} from '../styles/Calendar.styles';
+} from './styles/CalendarHeader.styles';
 
 interface CalendarHeaderProps {
   currentMonth: number;

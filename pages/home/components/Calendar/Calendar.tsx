@@ -1,7 +1,7 @@
 import React from 'react';
-import CalendarGrid from './components/CalendarGrid';
-import CalendarHeader from './components/CalendarHeader';
-import EventList from './components/EventList';
+import CalendarGrid from './components/CalendarGrid/CalendarGrid';
+import CalendarHeader from './components/CalendarHeader/CalendarHeader';
+import EventList from './components/EventList/EventList';
 import useCalendar from './hooks/useCalendar/useCalendar';
 import useCalendarEvents from './hooks/useCalendarEvents';
 import {

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { device } from '../../../../../../constants/breakpoints';
+import { device } from '../../../../../../../constants/breakpoints';
 
 export const EventBar = styled.div<{
   color: string;
@@ -7,17 +7,17 @@ export const EventBar = styled.div<{
   isEnd?: boolean;
   isMiddle?: boolean;
 }>`
-  height: auto; /* Altura automática para adaptarse al contenido */
-  min-height: 16px; /* Altura reducida para móviles */
-  font-size: 9px; /* Texto más pequeño para móviles */
-  line-height: 1.2; /* Líneas más juntas en móvil */
+  height: 
+  min-height: 16px; 
+  font-size: 9px; 
+  line-height: 1.2; 
   font-weight: 600;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   background-color: ${(props) => props.color || '#4a90e2'};
   color: white;
-  padding: 2px 4px; /* Padding reducido para móviles */
+  padding: 2px 4px;
 
   @media ${device.sm} {
     min-height: 18px;
@@ -46,9 +46,9 @@ export const EventBar = styled.div<{
     return '0';
   }};
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25); /* Sombra más pronunciada */
-  text-shadow: 0 0 2px rgba(0, 0, 0, 0.6); /* Mejor legibilidad del texto */
-  margin-bottom: 4px; /* Más espacio entre eventos */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25); 
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.6); 
+  margin-bottom: 4px; 
 
   &:hover {
     filter: brightness(110%);
