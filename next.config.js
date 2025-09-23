@@ -20,6 +20,14 @@ const nextConfig = {
       {
         source: '/nuestra-organizacion/nuestra_historia',
         destination: '/history/History'
+      },
+      {
+        source: '/nuestra-organizacion/vision',
+        destination: '/vision/Vision'
+      },
+      {
+        source: '/nuestra-organizacion/mision',
+        destination: '/mission/Mission'
       }
     ];
   }
