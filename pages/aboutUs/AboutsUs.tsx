@@ -14,6 +14,8 @@ import {
   ExperienceSection,
   ExperienceText,
   MainContent,
+  MissionStatement,
+  MissionText,
   SectionTitle,
   VideoContainer,
   VideoSection,
@@ -96,7 +98,6 @@ function AboutsUs() {
               ))}
             </DifferentiatorsGrid>
           </DifferentiatorsSection>
-
           {/* Video Section */}
           <VideoSection>
             <VideoTitle>Conoce más sobre nosotros</VideoTitle>
@@ -106,12 +107,20 @@ function AboutsUs() {
                 height="400"
                 src="https://www.youtube.com/embed/q0YNlXQ8_zc"
                 title="Video Iagro"
-                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
             </VideoContainer>
           </VideoSection>
+          {/* Mission Statement */}
+          <MissionStatement>
+            <MissionText>
+              Tu éxito es <strong>nuestra prioridad</strong>. En Iagro, no solo
+              somos proveedores, somos tus <strong>aliados estratégicos</strong>{' '}
+              en el camino hacia la <strong>productividad</strong> y{' '}
+              <strong>sustentabilidad</strong>.
+            </MissionText>
+          </MissionStatement>
         </MainContent>
       </AboutContainer>
     </Layout>

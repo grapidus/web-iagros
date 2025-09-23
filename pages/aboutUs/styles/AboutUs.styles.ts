@@ -157,3 +157,55 @@ export const VideoContainer = styled.div`
     }
   }
 `;
+
+export const MissionStatement = styled.section`
+  background: linear-gradient(
+    135deg,
+    ${theme.colors.primary}05,
+    ${theme.colors.primary}15
+  );
+  border-radius: 30px;
+  padding: 60px 40px;
+  margin: 50px auto 100px;
+  position: relative;
+  max-width: 1100px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid ${theme.colors.primary};
+  overflow: hidden;
+
+  &:before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    font-size: 150px;
+    opacity: 0.1;
+    color: ${theme.colors.primary};
+    font-family: Georgia, serif;
+  }
+
+  @media (max-width: 768px) {
+    padding: 40px 30px;
+  }
+`;
+
+export const MissionText = styled.p`
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: ${theme.colors.text};
+  text-align: center;
+  font-weight: 500;
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  font-style: italic;
+
+  strong {
+    color: ${theme.colors.primary};
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
+`;
