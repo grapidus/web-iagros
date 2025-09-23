@@ -9,23 +9,38 @@ export const CalendarSection = styled.section`
   overflow-x: hidden;
   box-sizing: border-box;
   min-height: auto;
+`;
 
-  .calendar-header-text {
-    text-align: center;
-    margin-bottom: 40px;
-    padding: 0 15px;
+export const CalendarHeader = styled.div`
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
 
-    h2 {
-      font-size: 2rem;
-      color: #333;
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+  }
+`;
 
-    p {
-      font-size: 1rem;
-      color: #666;
-    }
+export const CalendarTitle = styled.h2`
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+  font-weight: 600;
+
+  @media ${device.md} {
+    font-size: 3rem;
+  }
+`;
+
+export const CalendarSubtitle = styled.p`
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+
+  @media ${device.md} {
+    font-size: 1.4rem;
   }
 `;
 

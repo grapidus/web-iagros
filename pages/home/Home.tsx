@@ -23,8 +23,8 @@ function Home() {
       />
       <Calendar
         events={calendarEvents}
-        title="CALENDARIO DE EVENTOS"
-        subtitle="Mantente al día con nuestros próximos eventos y actividades"
+        title="AGROEVENTOS"
+        subtitle="Creando momentos memorables con cada detalle"
       />
     </>
   );

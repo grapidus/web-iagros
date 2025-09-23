@@ -1,13 +1,16 @@
 import React from 'react';
 import CalendarGrid from './components/CalendarGrid/CalendarGrid';
-import CalendarHeader from './components/CalendarHeader/CalendarHeader';
+import CalendarHeaderComponent from './components/CalendarHeader/CalendarHeader';
 import EventList from './components/EventList/EventList';
 import useCalendar from './hooks/useCalendar/useCalendar';
 import useCalendarEvents from './hooks/useCalendarEvents';
 import {
   CalendarContainer,
   CalendarContent,
+  CalendarHeader,
   CalendarSection,
+  CalendarSubtitle,
+  CalendarTitle,
   CalendarWrapper
 } from './styles/Calendar.styles';
 
@@ -53,15 +56,15 @@ const Calendar: React.FC<CalendarProps> = ({ events, title, subtitle }) => {
   return (
     <CalendarSection>
       {(title || subtitle) && (
-        <div className="calendar-header-text">
-          {title && <h2>{title}</h2>}
-          {subtitle && <p>{subtitle}</p>}
-        </div>
+        <CalendarHeader>
+          {title && <CalendarTitle>{title}</CalendarTitle>}
+          {subtitle && <CalendarSubtitle>{subtitle}</CalendarSubtitle>}
+        </CalendarHeader>
       )}
 
       <CalendarContainer>
         <CalendarWrapper>
-          <CalendarHeader
+          <CalendarHeaderComponent
             currentMonth={currentMonth}
             currentYear={currentYear}
             prevMonth={prevMonth}
