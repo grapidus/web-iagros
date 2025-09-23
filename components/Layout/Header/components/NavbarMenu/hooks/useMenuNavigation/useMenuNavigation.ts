@@ -44,26 +44,15 @@ export const useMenuNavigation = () => {
         ]
       },
       {
-        label: 'Asesorías y Servicios',
-        href: '/servicios-y-asesorias',
+        label: 'Escríbanos',
+        href: '/escribanos',
         subItems: [
-          {
-            label: 'Consultoría Técnica',
-            href: '/servicios-y-asesorias/consultoria'
-          },
-          {
-            label: 'Análisis de Suelos',
-            href: '/servicios-y-asesorias/analisis-suelos'
-          },
-          {
-            label: 'Capacitaciones',
-            href: '/servicios-y-asesorias/capacitaciones'
-          }
+          { label: 'Peticiones', href: '/escribanos/peticiones' },
+          { label: 'Sugerencias', href: '/escribanos/sugerencias' }
         ]
       },
       { label: 'Experiencias', href: '/experiencias' },
-      { label: 'Blog', href: '/blog' },
-      { label: 'Escríbanos', href: '/escribanos' }
+      { label: 'Blog', href: '/blog' }
     ],
     []
   );
