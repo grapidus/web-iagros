@@ -3,7 +3,6 @@ import theme from '../../../styles/theme';
 
 export const AboutContainer = styled.div`
   min-height: 100vh;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 `;
 
 export const ExperienceSection = styled.section`
@@ -18,6 +17,10 @@ export const ExperienceSection = styled.section`
   margin-left: auto;
   margin-right: auto;
   border-radius: 20px;
+
+  @media (max-width: 768px) {
+    margin-top: -140px;
+  }
 `;
 
 export const ExperienceNumber = styled.div`
@@ -80,6 +83,55 @@ export const Description = styled.p`
 export const VideoSection = styled.section`
   margin-bottom: 80px;
   text-align: center;
+`;
+
+export const DifferentiatorsSection = styled.section`
+  margin-bottom: 80px;
+`;
+
+export const DifferentiatorsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+`;
+
+export const DifferentiatorCard = styled.div`
+  background: white;
+  padding: 40px 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: ${theme.colors.primary};
+  }
+`;
+
+export const CardIcon = styled.div`
+  font-size: 3rem;
+  margin-bottom: 20px;
+  filter: grayscale(0);
+  transition: filter 0.3s ease;
+`;
+
+export const CardTitle = styled.h3`
+  font-size: 1.4rem;
+  color: ${theme.colors.primary};
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-family: ${theme.fonts.secondary};
+`;
+
+export const CardDescription = styled.p`
+  font-size: 1rem;
+  line-height: 1.6;
+  color: ${theme.colors.text};
+  opacity: 0.8;
 `;
 
 export const VideoTitle = styled.h2`

@@ -2,12 +2,19 @@ import HeroSection from '../../components/HeroSection/HeroSection';
 import Layout from '../../components/Layout/Layout';
 import {
   AboutContainer,
+  CardDescription,
+  CardIcon,
+  CardTitle,
   ContentSection,
   Description,
+  DifferentiatorCard,
+  DifferentiatorsGrid,
+  DifferentiatorsSection,
   ExperienceNumber,
   ExperienceSection,
   ExperienceText,
   MainContent,
+  SectionTitle,
   VideoContainer,
   VideoSection,
   VideoTitle
@@ -75,6 +82,20 @@ function AboutsUs() {
               el éxito de nuestros clientes.
             </Description>
           </ContentSection>
+
+          {/* Differentiators Section */}
+          <DifferentiatorsSection>
+            <SectionTitle>Lo Que Nos Hace Diferentes</SectionTitle>
+            <DifferentiatorsGrid>
+              {differentiators.map((item, index) => (
+                <DifferentiatorCard key={index}>
+                  <CardIcon>{item.icon}</CardIcon>
+                  <CardTitle>{item.title}</CardTitle>
+                  <CardDescription>{item.description}</CardDescription>
+                </DifferentiatorCard>
+              ))}
+            </DifferentiatorsGrid>
+          </DifferentiatorsSection>
 
           {/* Video Section */}
           <VideoSection>
