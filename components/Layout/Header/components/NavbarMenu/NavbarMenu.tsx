@@ -60,7 +60,7 @@ const NavbarMenu: React.FC<NavbarMenuProps> = ({ logoSrc, logoAlt }) => {
             <NavList>
               {menuItems.map((item, index) => (
                 <NavItem key={index}>
-                  <NavLink href={item.href} hasSubItems={!!item.subItems}>
+                  <NavLink href={item.href} $hasSubItems={!!item.subItems}>
                     {item.label}
                   </NavLink>
                   {item.subItems && (
@@ -82,13 +82,13 @@ const NavbarMenu: React.FC<NavbarMenuProps> = ({ logoSrc, logoAlt }) => {
           </Navigation>
 
           <MobileMenuButton onClick={toggleMobileMenu} aria-label="Toggle menu">
-            <AnimatedMenuIcon isOpen={isMobileMenuOpen}>
+            <AnimatedMenuIcon $isOpen={isMobileMenuOpen}>
               <BsList size={28} />
               <BsX size={28} />
             </AnimatedMenuIcon>
           </MobileMenuButton>
         </NavbarWrapper>
-        <MobileMenu isOpen={isMobileMenuOpen}>
+        <MobileMenu $isOpen={isMobileMenuOpen}>
           <MobileNavList>
             {menuItems.map((item, index) => (
               <React.Fragment key={index}>
@@ -105,7 +105,7 @@ const NavbarMenu: React.FC<NavbarMenuProps> = ({ logoSrc, logoAlt }) => {
                         onClick={() => toggleSubMenu(index)}
                         type="button"
                       >
-                        <ExpandIcon isOpen={openSubMenus.has(index)}>
+                        <ExpandIcon $isOpen={openSubMenus.has(index)}>
                           <BsChevronDown size={16} />
                         </ExpandIcon>
                       </ExpandIconButton>
@@ -117,7 +117,7 @@ const NavbarMenu: React.FC<NavbarMenuProps> = ({ logoSrc, logoAlt }) => {
                   )}
                 </MobileNavItem>
                 {item.subItems && (
-                  <MobileSubMenuList isOpen={openSubMenus.has(index)}>
+                  <MobileSubMenuList $isOpen={openSubMenus.has(index)}>
                     {item.subItems.map((subItem, subIndex) => (
                       <MobileSubMenuItem key={subIndex}>
                         <MobileSubMenuLink

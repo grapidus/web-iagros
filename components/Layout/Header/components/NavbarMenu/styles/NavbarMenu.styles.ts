@@ -79,7 +79,7 @@ export const NavItem = styled.li`
   position: relative;
 `;
 
-export const NavLink = styled.a<{ hasSubItems?: boolean }>`
+export const NavLink = styled.a<{ $hasSubItems?: boolean }>`
   color: #333;
   text-decoration: none;
   font-weight: 500;
@@ -118,8 +118,8 @@ export const NavLink = styled.a<{ hasSubItems?: boolean }>`
     transition: width 0.3s ease;
   }
 
-  ${({ hasSubItems }) =>
-    hasSubItems &&
+  ${({ $hasSubItems }) =>
+    $hasSubItems &&
     `
     &::after {
       content: '';
@@ -175,12 +175,12 @@ export const MobileMenuButton = styled.button`
   }
 `;
 
-export const AnimatedMenuIcon = styled.div<{ isOpen: boolean }>`
+export const AnimatedMenuIcon = styled.div<{ $isOpen: boolean }>`
   position: relative;
   width: 28px;
   height: 28px;
   transition: all 0.3s ease;
-  transform: ${({ isOpen }) => (isOpen ? 'rotate(90deg)' : 'rotate(0deg)')};
+  transform: ${({ $isOpen }) => ($isOpen ? 'rotate(90deg)' : 'rotate(0deg)')};
 
   svg {
     position: absolute;
@@ -189,27 +189,27 @@ export const AnimatedMenuIcon = styled.div<{ isOpen: boolean }>`
     width: 100%;
     height: 100%;
     transition: all 0.3s ease;
-    opacity: ${({ isOpen }) => (isOpen ? '0' : '1')};
-    transform: ${({ isOpen }) => (isOpen ? 'scale(0.8)' : 'scale(1)')};
+    opacity: ${({ $isOpen }) => ($isOpen ? '0' : '1')};
+    transform: ${({ $isOpen }) => ($isOpen ? 'scale(0.8)' : 'scale(1)')};
   }
 
   svg:last-child {
-    opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
-    transform: ${({ isOpen }) => (isOpen ? 'scale(1)' : 'scale(0.8)')};
+    opacity: ${({ $isOpen }) => ($isOpen ? '1' : '0')};
+    transform: ${({ $isOpen }) => ($isOpen ? 'scale(1)' : 'scale(0.8)')};
   }
 `;
 
-export const MobileMenu = styled.div<{ isOpen: boolean }>`
+export const MobileMenu = styled.div<{ $isOpen: boolean }>`
   position: fixed;
   top: 80px;
   left: 0;
   width: 100%;
   background-color: white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transform: ${({ isOpen }) =>
-    isOpen ? 'translateY(0)' : 'translateY(-100%)'};
-  opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
-  visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
+  transform: ${({ $isOpen }) =>
+    $isOpen ? 'translateY(0)' : 'translateY(-100%)'};
+  opacity: ${({ $isOpen }) => ($isOpen ? '1' : '0')};
+  visibility: ${({ $isOpen }) => ($isOpen ? 'visible' : 'hidden')};
   transition: all 0.3s ease;
   z-index: 999;
 
@@ -303,13 +303,13 @@ export const ExpandIconButton = styled.button`
   }
 `;
 
-export const ExpandIcon = styled.span<{ isOpen: boolean }>`
+export const ExpandIcon = styled.span<{ $isOpen: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 16px;
   transition: transform 0.3s ease;
-  transform: ${({ isOpen }) => (isOpen ? 'rotate(180deg)' : 'rotate(0)')};
+  transform: ${({ $isOpen }) => ($isOpen ? 'rotate(180deg)' : 'rotate(0)')};
 
   svg {
     width: 16px;
@@ -317,12 +317,12 @@ export const ExpandIcon = styled.span<{ isOpen: boolean }>`
   }
 `;
 
-export const MobileSubMenuList = styled.ul<{ isOpen: boolean }>`
+export const MobileSubMenuList = styled.ul<{ $isOpen: boolean }>`
   list-style: none;
   margin: 0;
   padding: 0;
   background-color: #f8f8f8;
-  max-height: ${({ isOpen }) => (isOpen ? '300px' : '0')};
+  max-height: ${({ $isOpen }) => ($isOpen ? '300px' : '0')};
   overflow: hidden;
   transition: max-height 0.3s ease;
 `;
