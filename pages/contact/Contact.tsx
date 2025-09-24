@@ -10,11 +10,17 @@ import {
   ButtonWrapper,
   ContactContainer,
   ContactHeader,
+  ContactInfo,
+  ContactInnerContainer,
   Description,
+  FeatureIcon,
+  FeatureItem,
+  FeatureText,
   FormColumn,
   FormContainer,
   FormGrid,
   FormNote,
+  FormSection,
   NoteText,
   StyledSubmitButton,
   Title
@@ -35,89 +41,122 @@ function Contact() {
     <Layout>
       <FormikProvider value={formik}>
         <ContactContainer>
-          {/* Encabezado */}
-          <ContactHeader>
-            <Title>Escríbenos</Title>
-            <Description>
-              ¡Envíanos tus peticiones! Si tienes alguna solicitud o
-              requerimiento, te invitamos a utilizar este formulario. Tu
-              colaboración es valiosa para nosotros. ¡Gracias por participar!
-            </Description>
-          </ContactHeader>
+          <ContactInnerContainer>
+            {/* Panel de información */}
+            <ContactInfo>
+              <ContactHeader>
+                <Title>¡Conecta con Nosotros!</Title>
+                <Description>
+                  Impulsa tu proyecto agrícola con nuestro equipo experto.
+                  Estamos aquí para transformar tus ideas en realidad.
+                </Description>
+              </ContactHeader>
 
-          {/* Formulario */}
-          <FormContainer>
-            <FormGrid>
-              {/* Nombres */}
-              <FormColumn half>
-                <FormikTextField name="names" label="Nombres" />
-              </FormColumn>
+              {/* Tarjetas de características */}
+              <FeatureItem>
+                <FeatureIcon>🌱</FeatureIcon>
+                <FeatureText>
+                  <h3>Innovación Agrícola</h3>
+                  <p>Soluciones tecnológicas para el campo moderno</p>
+                </FeatureText>
+              </FeatureItem>
 
-              {/* Apellidos */}
-              <FormColumn half>
-                <FormikTextField name="lastNames" label="Apellidos" />
-              </FormColumn>
+              <FeatureItem>
+                <FeatureIcon>🚀</FeatureIcon>
+                <FeatureText>
+                  <h3>Respuesta Rápida</h3>
+                  <p>Te contactamos en menos de 24 horas</p>
+                </FeatureText>
+              </FeatureItem>
 
-              {/* Correo electrónico */}
-              <FormColumn half>
-                <FormikTextField
-                  name="email"
-                  label="Correo electrónico"
-                  type="email"
-                />
-              </FormColumn>
+              <FeatureItem>
+                <FeatureIcon>💡</FeatureIcon>
+                <FeatureText>
+                  <h3>Asesoría Experta</h3>
+                  <p>Consultoría personalizada para tu negocio</p>
+                </FeatureText>
+              </FeatureItem>
+            </ContactInfo>
 
-              {/* Empresa */}
-              <FormColumn half>
-                <FormikTextField name="company" label="Empresa" />
-              </FormColumn>
+            {/* Sección del formulario */}
+            <FormSection>
+              <FormContainer>
+                <FormGrid>
+                  {/* Nombres */}
+                  <FormColumn half>
+                    <FormikTextField name="names" label="Nombres" />
+                  </FormColumn>
 
-              {/* Teléfono */}
-              <FormColumn half>
-                <FormikTextField name="phone" label="Teléfono" />
-              </FormColumn>
+                  {/* Apellidos */}
+                  <FormColumn half>
+                    <FormikTextField name="lastNames" label="Apellidos" />
+                  </FormColumn>
 
-              {/* Tipo de contacto */}
-              <FormColumn half>
-                <FormikSelect
-                  name="contactType"
-                  label="Tipo de contacto"
-                  options={contactTypeOptions}
-                  placeholder="Seleccione una opción"
-                />
-              </FormColumn>
+                  {/* Correo electrónico */}
+                  <FormColumn half>
+                    <FormikTextField
+                      name="email"
+                      label="Correo electrónico"
+                      type="email"
+                    />
+                  </FormColumn>
 
-              {/* Tema de interés */}
-              <FormColumn>
-                <FormikTextField
-                  name="topicOfInterest"
-                  label="Tema de interés"
-                  multiline
-                  rows={4}
-                />
-              </FormColumn>
+                  {/* Empresa */}
+                  <FormColumn half>
+                    <FormikTextField name="company" label="Empresa" />
+                  </FormColumn>
 
-              {/* Botón de envío */}
-              <FormColumn>
-                <ButtonWrapper>
-                  <StyledSubmitButton
-                    variant="contained"
-                    type="button"
-                    loading={formik.isSubmitting}
-                    onClick={() => formik.handleSubmit()}
-                    disabled={formik.isSubmitting}
-                  >
-                    {formik.isSubmitting ? 'Enviando...' : 'Enviar formulario'}
-                  </StyledSubmitButton>
-                  <FormNote>
-                    <NoteText>
-                      * Todos los campos son obligatorios excepto el mensaje.
-                    </NoteText>
-                  </FormNote>
-                </ButtonWrapper>
-              </FormColumn>
-            </FormGrid>
-          </FormContainer>
+                  {/* Teléfono */}
+                  <FormColumn half>
+                    <FormikTextField name="phone" label="Teléfono" />
+                  </FormColumn>
+
+                  {/* Tipo de contacto */}
+                  <FormColumn half>
+                    <FormikSelect
+                      name="contactType"
+                      label="Tipo de contacto"
+                      options={contactTypeOptions}
+                      placeholder="Seleccione una opción"
+                    />
+                  </FormColumn>
+
+                  {/* Tema de interés */}
+                  <FormColumn>
+                    <FormikTextField
+                      name="topicOfInterest"
+                      label="Tema de interés"
+                      multiline
+                      rows={4}
+                    />
+                  </FormColumn>
+
+                  {/* Botón de envío */}
+                  <FormColumn>
+                    <ButtonWrapper>
+                      <StyledSubmitButton
+                        variant="contained"
+                        type="button"
+                        loading={formik.isSubmitting}
+                        onClick={() => formik.handleSubmit()}
+                        disabled={formik.isSubmitting}
+                      >
+                        {formik.isSubmitting
+                          ? 'Enviando...'
+                          : 'Enviar formulario'}
+                      </StyledSubmitButton>
+                      <FormNote>
+                        <NoteText>
+                          * Todos los campos son obligatorios excepto el
+                          mensaje.
+                        </NoteText>
+                      </FormNote>
+                    </ButtonWrapper>
+                  </FormColumn>
+                </FormGrid>
+              </FormContainer>
+            </FormSection>
+          </ContactInnerContainer>
         </ContactContainer>
       </FormikProvider>
     </Layout>
