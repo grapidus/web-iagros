@@ -14,6 +14,7 @@ interface HeroSectionProps {
   backgroundColor?: string;
   textColor?: string;
   height?: string;
+  mobileHeight?: string; // Altura específica para móvil
   overlay?: boolean;
   overlayOpacity?: number;
   children?: React.ReactNode;
@@ -31,6 +32,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   backgroundColor,
   textColor = 'white',
   height = '400px',
+  mobileHeight = '100px',
   overlay = true,
   overlayOpacity = 0.5,
   children,
@@ -44,6 +46,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       backgroundImage={backgroundImage}
       backgroundColor={backgroundColor}
       height={height}
+      mobileHeight={mobileHeight}
       textColor={textColor}
       mobileBackgroundPosition={mobileBackgroundPosition}
       backgroundSize={backgroundSize}

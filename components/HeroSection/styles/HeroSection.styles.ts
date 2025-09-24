@@ -5,6 +5,7 @@ interface HeroContainerProps {
   backgroundImage?: string;
   backgroundColor?: string;
   height?: string;
+  mobileHeight?: string;
   textColor?: string;
   mobileBackgroundPosition?: string;
   backgroundSize?: 'cover' | 'contain' | 'auto';
@@ -52,7 +53,7 @@ export const HeroContainer = styled.section<HeroContainerProps>`
           background-size: ${
             props.mobileBackgroundSize || props.backgroundSize || 'cover'
           };
-          min-height: 300px;
+          min-height: ${props.mobileHeight || '300px'};
         }
         
         /* Ajustes para móvil */
@@ -61,7 +62,7 @@ export const HeroContainer = styled.section<HeroContainerProps>`
             props.mobileBackgroundPosition || 'center center'
           };
           background-size: ${props.mobileBackgroundSize || 'contain'};
-          min-height: 250px;
+          min-height: ${props.mobileHeight || '250px'};
         }
       `;
     }
@@ -74,6 +75,9 @@ export const HeroContainer = styled.section<HeroContainerProps>`
   /* Altura responsive */
   @media (max-width: 768px) {
     height: ${(props) => {
+      if (props.mobileHeight) {
+        return props.mobileHeight;
+      }
       const height = props.height || '400px';
       const numericHeight = parseInt(height);
       return `${Math.max(numericHeight * 0.7, 300)}px`;
@@ -82,6 +86,9 @@ export const HeroContainer = styled.section<HeroContainerProps>`
 
   @media (max-width: 480px) {
     height: ${(props) => {
+      if (props.mobileHeight) {
+        return props.mobileHeight;
+      }
       const height = props.height || '400px';
       const numericHeight = parseInt(height);
       return `${Math.max(numericHeight * 0.6, 250)}px`;

@@ -2,6 +2,7 @@ import { FormikProvider, useFormik } from 'formik';
 
 import FormikSelect from '../../components/FormFields/FormikSelect/FormikSelect';
 import FormikTextField from '../../components/FormFields/FormikTextField/FormikTextField';
+import HeroSection from '../../components/HeroSection';
 import Layout from '../../components/Layout/Layout';
 import useSendFormContact from './hooks/sendFormContact/useSendFormContact';
 import { initialValuesContact } from './models/initial/contact.initial';
@@ -39,6 +40,19 @@ function Contact() {
 
   return (
     <Layout>
+      <HeroSection
+        title=""
+        subtitle=""
+        backgroundImage="https://iagros.com/wp-content/uploads/2024/08/ESCRIBANOS-2.png"
+        height="300px"
+        mobileHeight="100px"
+        overlay={false}
+        overlayOpacity={0.6}
+        hideTextOnMobile={true}
+        mobileBackgroundPosition="center top"
+        backgroundSize="cover"
+        mobileBackgroundSize="contain"
+      />
       <FormikProvider value={formik}>
         <ContactContainer>
           <ContactInnerContainer>

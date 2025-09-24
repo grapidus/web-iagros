@@ -19,7 +19,8 @@ export const ExperienceSection = styled.section`
   border-radius: 20px;
 
   @media (max-width: 768px) {
-    margin-top: -140px;
+    margin-top: 20px;
+    margin-bottom: 40px;
   }
 `;
 

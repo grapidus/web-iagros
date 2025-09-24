@@ -6,12 +6,12 @@ export const HistoryContainer = styled.div`
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0.5rem 1rem 2rem;
-  margin-top: -1rem; /* Reducir espacio en dispositivos móviles */
+  padding: 2rem 1rem 2rem;
+  margin-top: 2rem; /* Espaciado apropiado del HeroSection */
 
   @media (min-width: ${size.md}px) {
-    padding: 1.5rem 2rem 3rem;
-    margin-top: 0; /* Restaurar espacio normal en pantallas más grandes */
+    padding: 3rem 2rem 3rem;
+    margin-top: 3rem; /* Mayor espacio en pantallas grandes */
   }
 `;
 
