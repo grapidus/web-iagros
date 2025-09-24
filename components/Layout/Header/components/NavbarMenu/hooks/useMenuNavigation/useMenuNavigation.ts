@@ -45,11 +45,7 @@ export const useMenuNavigation = () => {
       },
       {
         label: 'Escríbanos',
-        href: '/escribanos',
-        subItems: [
-          { label: 'Peticiones', href: '/escribanos/peticiones' },
-          { label: 'Sugerencias', href: '/escribanos/sugerencias' }
-        ]
+        href: '/escribanos'
       },
       { label: 'Experiencias', href: '/experiencias' },
       { label: 'Blog', href: '/blog' }

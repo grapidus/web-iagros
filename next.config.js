@@ -28,6 +28,10 @@ const nextConfig = {
       {
         source: '/nuestra-organizacion/mision',
         destination: '/mission/Mission'
+      },
+      {
+        source: '/escribanos',
+        destination: '/contact/Contact'
       }
     ];
   }
