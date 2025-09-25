@@ -32,6 +32,10 @@ const nextConfig = {
       {
         source: '/escribanos',
         destination: '/contact/Contact'
+      },
+      {
+        source: '/experiencias/galeria-de-imagenes',
+        destination: '/gallery/Gallery'
       }
     ];
   }

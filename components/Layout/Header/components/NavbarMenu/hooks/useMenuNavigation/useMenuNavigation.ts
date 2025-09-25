@@ -47,7 +47,16 @@ export const useMenuNavigation = () => {
         label: 'Escríbanos',
         href: '/escribanos'
       },
-      { label: 'Experiencias', href: '/experiencias' },
+      {
+        label: 'Experiencias',
+        href: '/experiencias',
+        subItems: [
+          {
+            label: 'Galería de Imágenes',
+            href: '/experiencias/galeria-de-imagenes'
+          }
+        ]
+      },
       { label: 'Blog', href: '/blog' }
     ],
     []
