@@ -22,6 +22,8 @@ import {
   WaveContainer
 } from './styles/Footer.styles';
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 const Footer: React.FC = () => {
   return (
     <>
@@ -29,7 +31,10 @@ const Footer: React.FC = () => {
       <FooterContainer>
         <FooterWrapper>
           <FooterSection>
-            <LogoImage src={getAssetPath('/images/logos/logo-blanco.png')} alt="Logo AGROS" />
+            <LogoImage
+              src={getAssetPath('/images/logos/logo-blanco.png')}
+              alt="Logo AGROS"
+            />
             <FooterTitle>Mis sitio web</FooterTitle>
             <SocialIcons>
               <SocialLink
@@ -37,7 +42,10 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <SocialIcon src={getAssetPath('/images/social/youtube.png')} alt="YouTube" />
+                <SocialIcon
+                  src={getAssetPath('/images/social/youtube.png')}
+                  alt="YouTube"
+                />
               </SocialLink>
               <SocialLink
                 href="https://www.instagram.com/iagroglobal/"
@@ -54,21 +62,30 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <SocialIcon src={getAssetPath('/images/social/x.png')} alt="X" />
+                <SocialIcon
+                  src={getAssetPath('/images/social/x.png')}
+                  alt="X"
+                />
               </SocialLink>
               <SocialLink
                 href="https://www.facebook.com/iagrosglobal"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <SocialIcon src={getAssetPath('/images/social/facebook.png')} alt="Facebook" />
+                <SocialIcon
+                  src={getAssetPath('/images/social/facebook.png')}
+                  alt="Facebook"
+                />
               </SocialLink>
               <SocialLink
                 href="https://www.tiktok.com/@iagroglobal?_t=8qGZWSxljfh&_r=1"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <SocialIcon src={getAssetPath('/images/social/tiktok.png')} alt="TikTok" />
+                <SocialIcon
+                  src={getAssetPath('/images/social/tiktok.png')}
+                  alt="TikTok"
+                />
               </SocialLink>
             </SocialIcons>
           </FooterSection>
@@ -77,20 +94,22 @@ const Footer: React.FC = () => {
             <FooterTitle>Servicios</FooterTitle>
             <FooterList>
               <FooterListItem>
-                <FooterLink href="/nuestra-organizacion/">
+                <FooterLink href={`${basePath}/aboutUs/AboutsUs/`}>
                   Nuestra organización
                 </FooterLink>
               </FooterListItem>
               <FooterListItem>
-                <FooterLink href="/agro-insumos/">Agroinsumos</FooterLink>
+                <FooterLink href={`${basePath}/agro-insumos/`}>
+                  Agroinsumos
+                </FooterLink>
               </FooterListItem>
               <FooterListItem>
-                <FooterLink href="/servicios-y-asesorias/">
+                <FooterLink href={`${basePath}/servicios-y-asesorias/`}>
                   Asesorías y servicios
                 </FooterLink>
               </FooterListItem>
               <FooterListItem>
-                <FooterLink href="/blog/">Blog</FooterLink>
+                <FooterLink href={`${basePath}/blog/`}>Blog</FooterLink>
               </FooterListItem>
             </FooterList>
           </FooterSection>

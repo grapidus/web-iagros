@@ -1,5 +1,5 @@
-import NavbarMenu from './components/NavbarMenu/NavbarMenu';
 import { getAssetPath } from '../../../utils/getAssetPath';
+import NavbarMenu from './components/NavbarMenu/NavbarMenu';
 
 const Header = () => {
   return (

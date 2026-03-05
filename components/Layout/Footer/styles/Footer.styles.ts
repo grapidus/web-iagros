@@ -15,7 +15,9 @@ export const WaveContainer = styled.div`
   height: 20vw;
   min-height: 80px;
   max-height: 370px;
-  background: url('${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/backgrounds/footer-wave.svg') no-repeat center center;
+  background: url('${process.env.NEXT_PUBLIC_BASE_PATH ||
+    ''}/images/backgrounds/footer-wave.svg')
+    no-repeat center center;
   background-size: cover;
   margin-bottom: -1px;
 `;

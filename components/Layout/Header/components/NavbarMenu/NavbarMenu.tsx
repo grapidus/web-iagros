@@ -51,7 +51,7 @@ const NavbarMenu: React.FC<NavbarMenuProps> = ({ logoSrc, logoAlt }) => {
       <NavbarContainer>
         <NavbarWrapper>
           <LogoContainer>
-            <NavLink href="/">
+            <NavLink href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/`}>
               <LogoImage src={logoSrc} alt={logoAlt} />
             </NavLink>
           </LogoContainer>

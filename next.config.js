@@ -9,6 +9,7 @@ const nextConfig = {
 
   // Habilitar export estático para GitHub Pages
   output: 'export',
+  trailingSlash: true,
 
   // basePath y assetPrefix para GitHub Pages (en producción)
   basePath: isProd ? repoName : '',
@@ -32,8 +33,8 @@ const nextConfig = {
 
   // Exponer el basePath como variable de entorno para acceder en el cliente
   env: {
-    NEXT_PUBLIC_BASE_PATH: isProd ? repoName : '',
-  },
+    NEXT_PUBLIC_BASE_PATH: isProd ? repoName : ''
+  }
 };
 
 module.exports = nextConfig;
