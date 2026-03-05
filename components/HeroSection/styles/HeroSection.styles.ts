@@ -106,7 +106,7 @@ export const HeroContainer = styled.section<HeroContainerProps>`
       left: 0;
       right: 0;
       bottom: 0;
-      background: url('/images/backgrounds/pattern.svg') repeat;
+      background: url('${process.env.NEXT_PUBLIC_BASE_PATH || ''}/images/backgrounds/pattern.svg') repeat;
       opacity: 0.1;
       z-index: 1;
     }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { getAssetPath } from '../../../utils/getAssetPath';
 import {
   ContactLink,
   CopyrightText,
@@ -28,7 +29,7 @@ const Footer: React.FC = () => {
       <FooterContainer>
         <FooterWrapper>
           <FooterSection>
-            <LogoImage src="/images/logos/logo-blanco.png" alt="Logo AGROS" />
+            <LogoImage src={getAssetPath('/images/logos/logo-blanco.png')} alt="Logo AGROS" />
             <FooterTitle>Mis sitio web</FooterTitle>
             <SocialIcons>
               <SocialLink
@@ -36,7 +37,7 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <SocialIcon src="/images/social/youtube.png" alt="YouTube" />
+                <SocialIcon src={getAssetPath('/images/social/youtube.png')} alt="YouTube" />
               </SocialLink>
               <SocialLink
                 href="https://www.instagram.com/iagroglobal/"
@@ -44,7 +45,7 @@ const Footer: React.FC = () => {
                 rel="noopener noreferrer"
               >
                 <SocialIcon
-                  src="/images/social/instagram.png"
+                  src={getAssetPath('/images/social/instagram.png')}
                   alt="Instagram"
                 />
               </SocialLink>
@@ -53,21 +54,21 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <SocialIcon src="/images/social/x.png" alt="X" />
+                <SocialIcon src={getAssetPath('/images/social/x.png')} alt="X" />
               </SocialLink>
               <SocialLink
                 href="https://www.facebook.com/iagrosglobal"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <SocialIcon src="/images/social/facebook.png" alt="Facebook" />
+                <SocialIcon src={getAssetPath('/images/social/facebook.png')} alt="Facebook" />
               </SocialLink>
               <SocialLink
                 href="https://www.tiktok.com/@iagroglobal?_t=8qGZWSxljfh&_r=1"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <SocialIcon src="/images/social/tiktok.png" alt="TikTok" />
+                <SocialIcon src={getAssetPath('/images/social/tiktok.png')} alt="TikTok" />
               </SocialLink>
             </SocialIcons>
           </FooterSection>

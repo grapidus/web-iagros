@@ -19,15 +19,20 @@ const nextConfig = {
 
   // Desactivar optimización de imágenes (no soportada en export estático)
   images: {
-    unoptimized: true,
+    unoptimized: true
   },
 
   // Configuración del compilador nativo de Next.js para styled-components
   compiler: {
     styledComponents: {
       ssr: true,
-      displayName: true,
-    },
+      displayName: true
+    }
+  },
+
+  // Exponer el basePath como variable de entorno para acceder en el cliente
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isProd ? repoName : '',
   },
 };
 
