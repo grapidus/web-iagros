@@ -58,16 +58,6 @@ const Footer: React.FC = () => {
                 />
               </SocialLink>
               <SocialLink
-                href="https://x.com/iagros"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <SocialIcon
-                  src={getAssetPath('/images/social/x.png')}
-                  alt="X"
-                />
-              </SocialLink>
-              <SocialLink
                 href="https://www.facebook.com/iagrosglobal"
                 target="_blank"
                 rel="noopener noreferrer"

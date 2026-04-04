@@ -16,10 +16,9 @@ const usePartnersCarousel = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Determinar la cantidad de elementos que se pueden mostrar basado en el ancho de pantalla
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(window.innerWidth < 576);
     };
 
     handleResize();
@@ -30,8 +29,14 @@ const usePartnersCarousel = ({
     };
   }, []);
 
-  // Calcular número de elementos a mostrar basado en el tamaño de pantalla
-  const visibleItems = isMobile ? 1 : itemsToShow;
+  const getVisibleItems = () => {
+    if (typeof window === 'undefined') return itemsToShow;
+    if (window.innerWidth < 576) return 1;
+    if (window.innerWidth < 992) return 2;
+    return itemsToShow;
+  };
+
+  const visibleItems = getVisibleItems();
 
   // Calcular el máximo índice posible
   const maxIndex = totalItems - visibleItems;

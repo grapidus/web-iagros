@@ -4,30 +4,19 @@ import { device } from '../../../../../constants/breakpoints';
 export const PartnersSection = styled.section`
   position: relative;
   width: 100%;
-  padding: 80px 0 150px 0; /* Aumentamos el padding inferior para dejar espacio para los controles */
-  display: flex;
-  flex-direction: column;
+  padding: 70px 0 150px;
   overflow: hidden;
   background-image: url('https://iagros.com/wp-content/uploads/2024/08/Marcas_aliadas.png');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Para el efecto parallax */
+  background-attachment: fixed;
 
   &::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    inset: 0;
+    background: rgba(30, 30, 30, 0.75);
     z-index: 1;
-  }
-  @media ${device.md} {
-    padding: 100px 0 150px 0;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
   }
 `;
 
@@ -36,152 +25,220 @@ export const WaveContainer = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 80px;
   overflow: hidden;
   line-height: 0;
-  z-index: 2; /* Por encima del overlay */
+  z-index: 3;
 
   svg {
     position: relative;
     width: 100%;
-    height: 100px;
+    height: 80px;
   }
 `;
 
 export const ContentContainer = styled.div`
   position: relative;
+  z-index: 2;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
-  z-index: 2; /* Por encima del overlay */
-  display: flex;
-  flex-direction: column;
-
-  @media ${device.md} {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
+  padding: 0 24px;
 `;
 
-export const TitleContainer = styled.div`
+export const HeaderContainer = styled.div`
   text-align: center;
   margin-bottom: 40px;
+`;
 
-  @media ${device.md} {
-    width: 40%;
-    text-align: left;
-    margin-bottom: 0;
-    padding-right: 20px;
-  }
+export const SectionBadge = styled.span`
+  display: inline-block;
+  background: rgba(76, 175, 80, 0.18);
+  border: 1px solid rgba(76, 175, 80, 0.45);
+  color: #81c784;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 100px;
+  margin-bottom: 18px;
 `;
 
 export const Title = styled.h2`
-  font-size: 2.2rem;
-  color: white;
-  margin-bottom: 20px;
-  font-weight: 700;
+  font-size: 1.4rem;
+  color: #ffffff;
+  font-weight: 800;
+  margin: 0 0 14px;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+
+  @media ${device.sm} {
+    font-size: 1.8rem;
+  }
 
   @media ${device.md} {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
+  }
+
+  @media ${device.lg} {
+    font-size: 3rem;
   }
 `;
 
 export const Subtitle = styled.p`
   font-size: 1rem;
-  color: white;
-  margin-top: 10px;
-
-  @media ${device.md} {
-    font-size: 1.1rem;
-  }
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.65;
 `;
 
-export const CarouselContainer = styled.div`
-  width: 100%;
+export const PartnersGrid = styled.div``;
 
-  @media ${device.md} {
-    width: 55%;
-  }
-`;
-
-export const PartnersCarouselWrapper = styled.div`
+export const CarouselWrapper = styled.div`
   position: relative;
   width: 100%;
   overflow: hidden;
-  border-radius: 8px;
-  padding: 20px;
+  border-radius: 16px;
 `;
 
-export const PartnersCarouselTrack = styled.div`
+export const CarouselTrack = styled.div`
   display: flex;
-  transition: transform 0.5s ease;
+  transition: transform 0.4s ease;
 `;
 
-export const PartnerItem = styled.div`
-  min-width: 100%;
-  padding: 0 10px;
+export const PartnerCard = styled.div<{ $cols: number }>`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-
-  @media ${device.sm} {
-    min-width: 100%;
-  }
-
-  @media ${device.md} {
-    min-width: 33.333%;
-  }
+  justify-content: center;
+  gap: 14px;
+  min-width: ${({ $cols }) => `${100 / $cols}%`};
+  padding: 24px 16px;
+  cursor: default;
 `;
 
 export const PartnerImage = styled.img`
-  max-width: 100%;
+  max-width: 180px;
+  max-height: 110px;
+  width: auto;
   height: auto;
   object-fit: contain;
-  max-height: 100px;
-  filter: brightness(0) invert(1);
 
   @media ${device.sm} {
-    max-height: 120px;
+    max-width: 220px;
+    max-height: 130px;
   }
+
+  @media ${device.lg} {
+    max-width: 300px;
+    max-height: 170px;
+  }
+`;
+
+export const PartnerName = styled.span`
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  letter-spacing: 0.05em;
 `;
 
 export const CarouselControls = styled.div`
   display: flex;
+  align-items: center;
   justify-content: center;
-  margin-top: 20px;
-  position: relative;
-  z-index: 3;
-
-  @media ${device.md} {
-    justify-content: flex-end;
-  }
+  gap: 16px;
+  margin-top: 40px;
 `;
 
 export const CarouselButton = styled.button`
-  background: none;
-  border: 2px solid white;
+  background: rgba(255, 255, 255, 0.22);
+  border: 2px solid rgba(255, 255, 255, 0.55);
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 5px;
   cursor: pointer;
-  transition: all 0.3s ease;
   color: white;
+  flex-shrink: 0;
+  transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
 
-  &:hover {
-    background-color: white;
-    color: #333;
+  @media ${device.sm} {
+    width: 48px;
+    height: 48px;
+  }
+
+  &:hover:not(:disabled) {
+    background: rgba(76, 175, 80, 0.45);
+    border-color: rgba(76, 175, 80, 0.9);
+    transform: scale(1.08);
   }
 
   &:disabled {
-    opacity: 0.5;
+    opacity: 0.25;
     cursor: not-allowed;
-    color: white;
-    border-color: white;
+  }
+`;
+
+export const CarouselDots = styled.div`
+  display: flex;
+  gap: 6px;
+  align-items: center;
+
+  @media ${device.sm} {
+    gap: 8px;
+  }
+`;
+
+export const Dot = styled.div<{ $active: boolean }>`
+  width: ${({ $active }) => ($active ? '18px' : '7px')};
+  height: 7px;
+  border-radius: 100px;
+  background: ${({ $active }) => ($active ? '#81c784' : 'rgba(255,255,255,0.3)')};
+  transition: width 0.25s ease, background 0.25s ease;
+  flex-shrink: 0;
+`;
+
+export const PageCounter = styled.span`
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  min-width: 52px;
+  text-align: center;
+`;
+
+/* unused — kept so old imports don't break */
+export const TitleContainer = styled.div``;
+export const CarouselContainer = styled.div``;
+export const PartnersCarouselWrapper = styled.div``;
+export const PartnersCarouselTrack = styled.div``;
+export const PartnerItem = styled.div``;
+export const MarqueeContainer = styled.div``;
+export const MarqueeRow = styled.div``;
+export const MarqueeTrack = styled.div``;
+export const PartnerDescription = styled.p`
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+  margin: 0;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  max-width: 180px;
+
+  @media ${device.sm} {
+    font-size: 0.9rem;
+    max-width: 220px;
+  }
+
+  @media ${device.lg} {
+    font-size: 0.95rem;
+    max-width: 260px;
   }
 `;

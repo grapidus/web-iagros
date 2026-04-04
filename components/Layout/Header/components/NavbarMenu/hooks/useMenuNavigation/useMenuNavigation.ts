@@ -52,7 +52,7 @@ export const useMenuNavigation = () => {
         ]
       },
       {
-        label: 'Escríbanos',
+        label: 'Servicios',
         href: `${basePath}/contact/Contact`
       },
       {
@@ -65,7 +65,11 @@ export const useMenuNavigation = () => {
           }
         ]
       },
-      { label: 'Blog', href: `${basePath}/blog` }
+      { label: 'Blog', href: `${basePath}/blog` },
+      {
+        label: 'Escríbanos',
+        href: `${basePath}/contact/Contact`
+      }
     ],
     []
   );

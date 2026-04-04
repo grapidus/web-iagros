@@ -1,39 +1,36 @@
-// Datos de marcas aliadas
+import { getAssetPath } from '../utils/getAssetPath';
+
 export const partnersData = [
-  {
-    id: 1,
-    name: 'Partner 1',
-    logo: 'https://iagros.com/wp-content/uploads/elementor/thumbs/ecoflora-r48ocjqel83rul0eollnwy9sn5hvl4pow67cvdv9ao.png',
-    alt: 'Partner 1 Logo'
-  },
-  {
-    id: 2,
-    name: 'Partner 2',
-    logo: 'https://iagros.com/wp-content/uploads/elementor/thumbs/ecoflora-r48ocjqel83rul0eollnwy9sn5hvl4pow67cvdv9ao.png',
-    alt: 'Partner 2 Logo'
-  },
-  {
-    id: 3,
-    name: 'Partner 3',
-    logo: 'https://iagros.com/wp-content/uploads/elementor/thumbs/ecoflora-r48ocjqel83rul0eollnwy9sn5hvl4pow67cvdv9ao.png',
-    alt: 'Partner 3 Logo'
-  },
-  {
-    id: 4,
-    name: 'Partner 4',
-    logo: 'https://iagros.com/wp-content/uploads/elementor/thumbs/ecoflora-r48ocjqel83rul0eollnwy9sn5hvl4pow67cvdv9ao.png',
-    alt: 'Partner 4 Logo'
-  },
-  {
-    id: 5,
-    name: 'Partner 5',
-    logo: 'https://iagros.com/wp-content/uploads/elementor/thumbs/ecoflora-r48ocjqel83rul0eollnwy9sn5hvl4pow67cvdv9ao.png',
-    alt: 'Partner 5 Logo'
-  },
-  {
-    id: 6,
-    name: 'Partner 6',
-    logo: 'https://iagros.com/wp-content/uploads/elementor/thumbs/ecoflora-r48ocjqel83rul0eollnwy9sn5hvl4pow67cvdv9ao.png',
-    alt: 'Partner 6 Logo'
-  }
+  { id: 1,  name: 'Acepalma',      logo: getAssetPath('/images/partners/acepalma.png'),      alt: 'Acepalma',      description: 'Asociación de cultivadores de palma de aceite de Colombia.' },
+  { id: 2,  name: 'Agroinfesa',    logo: getAssetPath('/images/partners/agroinfesa.png'),    alt: 'Agroinfesa',    description: 'Distribución de insumos agrícolas y soluciones para el campo.' },
+  { id: 3,  name: 'Agrosavia',     logo: getAssetPath('/images/partners/agrosavia.png'),     alt: 'Agrosavia',     description: 'Corporación colombiana de investigación agropecuaria.' },
+  { id: 4,  name: 'Agroser',       logo: getAssetPath('/images/partners/agroser.png'),       alt: 'Agroser',       description: 'Servicios y soluciones para el sector agropecuario.' },
+  { id: 5,  name: 'Avgust',        logo: getAssetPath('/images/partners/avgust.png'),        alt: 'Avgust',        description: 'Agroquímicos y productos fitosanitarios para cultivos.' },
+  { id: 6,  name: 'BASF',          logo: getAssetPath('/images/partners/basf.png'),          alt: 'BASF',          description: 'Química innovadora para una agricultura sostenible.' },
+  { id: 7,  name: 'Bayer',         logo: getAssetPath('/images/partners/bayer.png'),         alt: 'Bayer',         description: 'Ciencia de cultivos e innovación en protección agrícola.' },
+  { id: 8,  name: 'Calco',         logo: getAssetPath('/images/partners/calco.png'),         alt: 'Calco',         description: 'Fertilizantes y correctivos para el mejoramiento de suelos.' },
+  { id: 9,  name: 'CC-FACA',       logo: getAssetPath('/images/partners/cc-faca.png'),       alt: 'CC-FACA',       description: 'Federación de asociaciones de cultivadores de arroz.' },
+  { id: 10, name: 'Colinagro',     logo: getAssetPath('/images/partners/colinagro.png'),     alt: 'Colinagro',     description: 'Soluciones nutricionales y fertilizantes para el agro.' },
+  { id: 11, name: 'Corteva',       logo: getAssetPath('/images/partners/corteva.png'),       alt: 'Corteva',       description: 'Semillas de alto rendimiento y protección de cultivos.' },
+  { id: 12, name: 'Cosmoagro',     logo: getAssetPath('/images/partners/cosmoagro.png'),     alt: 'Cosmoagro',     description: 'Nutrición vegetal, bioestimulantes y correctivos foliares.' },
+  { id: 13, name: 'Disan',         logo: getAssetPath('/images/partners/disan.png'),         alt: 'Disan',         description: 'Distribución especializada de insumos agrícolas.' },
+  { id: 14, name: 'Ecoflora',      logo: getAssetPath('/images/partners/ecoflora.png'),      alt: 'Ecoflora',      description: 'Biopesticidas y soluciones naturales para el agro.' },
+  { id: 15, name: 'FMC',           logo: getAssetPath('/images/partners/fmc.png'),           alt: 'FMC',           description: 'Tecnología agrícola y protección avanzada de cultivos.' },
+  { id: 16, name: 'Impulsemillas', logo: getAssetPath('/images/partners/impulsemillas.png'), alt: 'Impulsemillas', description: 'Comercialización de semillas certificadas de alta calidad.' },
+  { id: 17, name: 'Invesa',        logo: getAssetPath('/images/partners/invesa.png'),        alt: 'Invesa',        description: 'Insumos veterinarios y agrícolas para productores.' },
+  { id: 18, name: 'Microfertsa',   logo: getAssetPath('/images/partners/microfertsa.png'),   alt: 'Microfertsa',   description: 'Micronutrientes y fertilizantes foliares especializados.' },
+  { id: 20, name: 'Monómeros',     logo: getAssetPath('/images/partners/monomeros.png'),     alt: 'Monómeros',     description: 'Fertilizantes y productos químicos para la agricultura.' },
+  { id: 21, name: 'OMA',           logo: getAssetPath('/images/partners/oma.png'),           alt: 'OMA',           description: 'Organización para el mejoramiento agrícola nacional.' },
+  { id: 22, name: 'Paz del Río',   logo: getAssetPath('/images/partners/paz-del-rio.png'),   alt: 'Paz del Río',   description: 'Empresa siderúrgica con presencia en el sector agropecuario.' },
+  { id: 23, name: 'PQP',           logo: getAssetPath('/images/partners/pqp.png'),           alt: 'PQP',           description: 'Plaguicidas y productos químicos para la protección vegetal.' },
+  { id: 24, name: 'Precisagro',    logo: getAssetPath('/images/partners/precisagro.png'),    alt: 'Precisagro',    description: 'Agricultura de precisión y soluciones tecnológicas.' },
+  { id: 25, name: 'Rotam',         logo: getAssetPath('/images/partners/rotam.png'),         alt: 'Rotam',         description: 'Agroquímicos y protección de cultivos a nivel global.' },
+  { id: 26, name: 'Saenz',         logo: getAssetPath('/images/partners/saenz.png'),         alt: 'Saenz',         description: 'Maquinaria e implementos para el sector agrícola.' },
+  { id: 27, name: 'Safer',         logo: getAssetPath('/images/partners/safer.png'),         alt: 'Safer',         description: 'Productos fitosanitarios seguros y eficaces.' },
+  { id: 28, name: 'SENA',          logo: getAssetPath('/images/partners/sena.png'),          alt: 'SENA',          description: 'Formación técnica y tecnológica para el sector productivo.' },
+  { id: 29, name: 'Syngenta',      logo: getAssetPath('/images/partners/syngenta.png'),      alt: 'Syngenta',      description: 'Semillas innovadoras y protección avanzada de cultivos.' },
+  { id: 30, name: 'Sys-Tech',      logo: getAssetPath('/images/partners/sys-tech.png'),      alt: 'Sys-Tech',      description: 'Tecnología y sistemas de información para el agro.' },
+  { id: 31, name: 'Tecnoparque',   logo: getAssetPath('/images/partners/tecnoparque.png'),   alt: 'Tecnoparque',   description: 'Innovación y desarrollo tecnológico para emprendedores.' },
+  { id: 32, name: 'Vecol',         logo: getAssetPath('/images/partners/vecol.png'),         alt: 'Vecol',         description: 'Veterinaria colombiana, biológicos y productos sanitarios.' },
+  { id: 33, name: 'Yara',          logo: getAssetPath('/images/partners/yara.png'),          alt: 'Yara',          description: 'Nutrición de cultivos y fertilizantes de clase mundial.' }
 ];

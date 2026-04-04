@@ -1,12 +1,12 @@
 import React from 'react';
 import PartnersCarousel from './components/PartnersCarousel';
 import {
-  CarouselContainer,
   ContentContainer,
+  HeaderContainer,
   PartnersSection,
+  SectionBadge,
   Subtitle,
   Title,
-  TitleContainer,
   WaveContainer
 } from './styles/Partners.styles';
 
@@ -18,6 +18,7 @@ interface PartnersProps {
     name: string;
     logo: string;
     alt?: string;
+    description?: string;
   }>;
 }
 
@@ -25,14 +26,12 @@ const Partners: React.FC<PartnersProps> = ({ title, subtitle, partners }) => {
   return (
     <PartnersSection>
       <ContentContainer>
-        <TitleContainer>
+        <HeaderContainer>
+          <SectionBadge>Alianzas estratégicas</SectionBadge>
           <Title>{title}</Title>
           {subtitle && <Subtitle>{subtitle}</Subtitle>}
-        </TitleContainer>
-
-        <CarouselContainer>
-          <PartnersCarousel partners={partners} />
-        </CarouselContainer>
+        </HeaderContainer>
+        <PartnersCarousel partners={partners} />
       </ContentContainer>
 
       <WaveContainer>
@@ -45,7 +44,7 @@ const Partners: React.FC<PartnersProps> = ({ title, subtitle, partners }) => {
           <path
             d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
             fill="#ffffff"
-          ></path>
+          />
         </svg>
       </WaveContainer>
     </PartnersSection>
