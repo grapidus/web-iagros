@@ -10,23 +10,6 @@ export const CarouselContainer = styled.div`
 export const CarouselWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 300px;
-
-  @media ${device.sm} {
-    height: 400px;
-  }
-
-  @media ${device.md} {
-    height: 450px;
-  }
-
-  @media ${device.lg} {
-    height: 500px;
-  }
-
-  @media ${device.xl} {
-    height: 550px;
-  }
 `;
 
 const fadeIn = keyframes`
@@ -41,14 +24,11 @@ const fadeIn = keyframes`
 `;
 
 export const CarouselSlide = styled.div<{ isActive: boolean }>`
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
-  height: 100%;
+  display: ${({ isActive }) => (isActive ? 'block' : 'none')};
   opacity: ${({ isActive }) => (isActive ? 1 : 0)};
-  visibility: ${({ isActive }) => (isActive ? 'visible' : 'hidden')};
-  transition: opacity 0.8s ease, visibility 0.8s ease;
+  transition: opacity 0.45s ease;
 
   ${({ isActive }) =>
     isActive &&
@@ -59,13 +39,16 @@ export const CarouselSlide = styled.div<{ isActive: boolean }>`
 
 export const CarouselImage = styled.img`
   width: 100%;
-  height: 100%;
+  height: auto;
+  display: block;
+  max-height: 80vh;
   object-fit: cover;
   object-position: center;
 `;
 
 export const CarouselOverlay = styled.div`
   position: absolute;
+  z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
@@ -84,21 +67,17 @@ export const CarouselControls = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 0 1rem;
+  padding: 0 clamp(0.5rem, 2vw, 2rem);
   transform: translateY(-50%);
   z-index: 10;
-
-  @media ${device.md} {
-    padding: 0 2rem;
-  }
 `;
 
 export const ControlButton = styled.button`
   background-color: rgba(255, 255, 255, 0.7);
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: clamp(34px, 4.2vw, 50px);
+  height: clamp(34px, 4.2vw, 50px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -116,15 +95,15 @@ export const ControlButton = styled.button`
     transform: scale(0.95);
   }
 
-  @media ${device.md} {
-    width: 50px;
-    height: 50px;
+  svg {
+    width: clamp(16px, 2vw, 24px);
+    height: clamp(16px, 2vw, 24px);
   }
 `;
 
 export const CarouselDots = styled.div`
   position: absolute;
-  bottom: 1.5rem;
+  bottom: 1rem;
   left: 0;
   width: 100%;
   display: flex;

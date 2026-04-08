@@ -53,14 +53,14 @@ const Carousel: React.FC<CarouselProps> = ({
             aria-label="Previous slide"
             onClick={() => handleControlInteraction(prevSlide)}
           >
-            <BsChevronLeft size={24} />
+            <BsChevronLeft />
           </ControlButton>
           <ControlButton
             type="button"
             aria-label="Next slide"
             onClick={() => handleControlInteraction(nextSlide)}
           >
-            <BsChevronRight size={24} />
+            <BsChevronRight />
           </ControlButton>
         </CarouselControls>
 
