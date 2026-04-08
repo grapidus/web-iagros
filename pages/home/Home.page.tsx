@@ -12,8 +12,8 @@ function Home() {
     <>
       <Carousel items={carouselItems} />
       <Gallery
-        subtitle="Comprometidos con la excelencia en cada servicio"
-        title={'TRABAJAMOS PARA OFRECERLES LO MEJOR'}
+        subtitle="Comprometidos con la excelencia en cada servicio."
+        title={'Trabajamos para ofrecerles lo mejor'}
         items={galleryItems}
       />
       <Partners

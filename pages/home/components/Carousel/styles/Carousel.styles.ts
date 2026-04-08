@@ -5,6 +5,23 @@ export const CarouselContainer = styled.div`
   width: 100%;
   position: relative;
   overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: clamp(34px, 5vw, 64px);
+    background: linear-gradient(
+      180deg,
+      rgba(245, 245, 245, 0) 0%,
+      rgba(245, 245, 245, 0.85) 72%,
+      rgba(245, 245, 245, 1) 100%
+    );
+    pointer-events: none;
+    z-index: 6;
+  }
 `;
 
 export const CarouselWrapper = styled.div`
@@ -103,13 +120,13 @@ export const ControlButton = styled.button`
 
 export const CarouselDots = styled.div`
   position: absolute;
-  bottom: 1rem;
+  bottom: clamp(1.2rem, 2.4vw, 1.8rem);
   left: 0;
   width: 100%;
   display: flex;
   justify-content: center;
   gap: 0.5rem;
-  z-index: 10;
+  z-index: 5;
 `;
 
 export const CarouselDot = styled.button<{ isActive: boolean }>`
