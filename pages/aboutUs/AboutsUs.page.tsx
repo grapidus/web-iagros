@@ -16,10 +16,7 @@ import {
   MainContent,
   MissionStatement,
   MissionText,
-  SectionTitle,
-  VideoContainer,
-  VideoSection,
-  VideoTitle
+  SectionTitle
 } from './styles/AboutUs.styles';
 
 function AboutsUs() {
@@ -98,20 +95,6 @@ function AboutsUs() {
               ))}
             </DifferentiatorsGrid>
           </DifferentiatorsSection>
-          {/* Video Section */}
-          <VideoSection>
-            <VideoTitle>Conoce más sobre nosotros</VideoTitle>
-            <VideoContainer>
-              <iframe
-                width="100%"
-                height="400"
-                src="https://www.youtube.com/embed/q0YNlXQ8_zc"
-                title="Video Iagro"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </VideoContainer>
-          </VideoSection>
           {/* Mission Statement */}
           <MissionStatement>
             <MissionText>

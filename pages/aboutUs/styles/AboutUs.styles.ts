@@ -81,11 +81,6 @@ export const Description = styled.p`
   }
 `;
 
-export const VideoSection = styled.section`
-  margin-bottom: 80px;
-  text-align: center;
-`;
-
 export const DifferentiatorsSection = styled.section`
   margin-bottom: 80px;
 `;
@@ -133,30 +128,6 @@ export const CardDescription = styled.p`
   line-height: 1.6;
   color: ${theme.colors.text};
   opacity: 0.8;
-`;
-
-export const VideoTitle = styled.h2`
-  font-size: 2.2rem;
-  color: ${theme.colors.text};
-  margin-bottom: 40px;
-  font-family: ${theme.fonts.secondary};
-  font-weight: 700;
-`;
-
-export const VideoContainer = styled.div`
-  max-width: 800px;
-  margin: 0 auto;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-
-  iframe {
-    border-radius: 20px;
-
-    @media (max-width: 768px) {
-      height: 250px;
-    }
-  }
 `;
 
 export const MissionStatement = styled.section`
