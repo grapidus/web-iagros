@@ -60,7 +60,12 @@ const NavbarMenu: React.FC<NavbarMenuProps> = ({ logoSrc, logoAlt }) => {
             <NavList>
               {menuItems.map((item, index) => (
                 <NavItem key={index}>
-                  <NavLink href={item.href} $hasSubItems={!!item.subItems}>
+                  <NavLink
+                    href={item.href}
+                    $hasSubItems={!!item.subItems}
+                    onClick={item.subItems ? (e) => e.preventDefault() : undefined}
+                    style={item.subItems ? { cursor: 'default' } : undefined}
+                  >
                     {item.label}
                   </NavLink>
                   {item.subItems && (
@@ -97,7 +102,7 @@ const NavbarMenu: React.FC<NavbarMenuProps> = ({ logoSrc, logoAlt }) => {
                     <MobileNavButton>
                       <MobileNavMainLink
                         href={item.href}
-                        onClick={closeMobileMenu}
+                        onClick={(e) => { e.preventDefault(); }}
                       >
                         {item.label}
                       </MobileNavMainLink>

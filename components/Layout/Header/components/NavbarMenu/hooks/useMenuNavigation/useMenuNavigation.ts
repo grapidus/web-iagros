@@ -19,19 +19,19 @@ export const useMenuNavigation = () => {
       { label: 'Inicio', href: `${basePath}/` },
       {
         label: 'Nuestra Organización',
-        href: `${basePath}/aboutUs/AboutsUs`,
+        href: '#',
         subItems: [
           {
             label: 'Nuestra Historia',
-            href: `${basePath}/history/History`
+            href: `${basePath}/history`
           },
           {
             label: 'Misión',
-            href: `${basePath}/mission/Mission`
+            href: `${basePath}/mission`
           },
           {
             label: 'Visión',
-            href: `${basePath}/vision/Vision`
+            href: `${basePath}/vision`
           }
         ]
       },
@@ -52,23 +52,19 @@ export const useMenuNavigation = () => {
         ]
       },
       {
-        label: 'Servicios',
-        href: `${basePath}/contact/Contact`
-      },
-      {
         label: 'Experiencias',
         href: `${basePath}/experiencias`,
         subItems: [
           {
             label: 'Galería de Imágenes',
-            href: `${basePath}/gallery/Gallery`
+            href: `${basePath}/gallery`
           }
         ]
       },
       { label: 'Blog', href: `${basePath}/blog` },
       {
         label: 'Escríbanos',
-        href: `${basePath}/contact/Contact`
+        href: `${basePath}/contact`
       }
     ],
     []

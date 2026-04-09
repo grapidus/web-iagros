@@ -5,23 +5,6 @@ export const CarouselContainer = styled.div`
   width: 100%;
   position: relative;
   overflow: hidden;
-
-  &::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: clamp(34px, 5vw, 64px);
-    background: linear-gradient(
-      180deg,
-      rgba(245, 245, 245, 0) 0%,
-      rgba(245, 245, 245, 0.85) 72%,
-      rgba(245, 245, 245, 1) 100%
-    );
-    pointer-events: none;
-    z-index: 6;
-  }
 `;
 
 export const CarouselWrapper = styled.div`

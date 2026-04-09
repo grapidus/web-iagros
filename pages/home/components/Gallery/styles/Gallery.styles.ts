@@ -15,35 +15,10 @@ export const GalleryContainer = styled.section`
   padding: clamp(2rem, 3.6vw, 3.4rem) 0 clamp(2.2rem, 4vw, 4rem);
   width: 100%;
   max-width: 1220px;
-  margin: clamp(-1.6rem, -2.4vw, -0.8rem) auto 0;
-  background: #ffffff;
-  border-radius: clamp(16px, 2.4vw, 24px) clamp(16px, 2.4vw, 24px) 0 0;
-  box-shadow: 0 -4px 18px rgba(22, 32, 25, 0.07),
-    0 10px 24px rgba(22, 32, 25, 0.06);
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: clamp(1rem, 2.8vw, 2rem);
-    right: clamp(1rem, 2.8vw, 2rem);
-    height: 1px;
-    pointer-events: none;
-    background: linear-gradient(
-      90deg,
-      rgba(31, 47, 36, 0) 0%,
-      rgba(31, 47, 36, 0.18) 24%,
-      rgba(31, 47, 36, 0.18) 76%,
-      rgba(31, 47, 36, 0) 100%
-    );
-  }
+  margin: 0 auto;
 
   @media (max-width: 768px) {
     padding: 1.35rem 0 1.9rem;
-    margin-top: -0.3rem;
-    border-radius: 12px 12px 0 0;
-    box-shadow: 0 -2px 10px rgba(22, 32, 25, 0.05),
-      0 8px 16px rgba(22, 32, 25, 0.05);
   }
 `;
 
