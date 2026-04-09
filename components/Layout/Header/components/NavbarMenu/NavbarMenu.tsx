@@ -63,8 +63,8 @@ const NavbarMenu: React.FC<NavbarMenuProps> = ({ logoSrc, logoAlt }) => {
                   <NavLink
                     href={item.href}
                     $hasSubItems={!!item.subItems}
-                    onClick={item.subItems ? (e) => e.preventDefault() : undefined}
-                    style={item.subItems ? { cursor: 'default' } : undefined}
+                    onClick={item.href === '#' ? (e) => e.preventDefault() : undefined}
+                    style={item.href === '#' ? { cursor: 'default' } : undefined}
                   >
                     {item.label}
                   </NavLink>
@@ -102,7 +102,7 @@ const NavbarMenu: React.FC<NavbarMenuProps> = ({ logoSrc, logoAlt }) => {
                     <MobileNavButton>
                       <MobileNavMainLink
                         href={item.href}
-                        onClick={(e) => { e.preventDefault(); }}
+                        onClick={item.href === '#' ? (e) => { e.preventDefault(); } : closeMobileMenu}
                       >
                         {item.label}
                       </MobileNavMainLink>

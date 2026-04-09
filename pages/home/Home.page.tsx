@@ -12,8 +12,9 @@ function Home() {
     <>
       <Carousel items={carouselItems} />
       <Gallery
+        eyebrow="Productos &amp; Servicios"
+        title="Trabajamos para ofrecerles lo mejor"
         subtitle="Comprometidos con la excelencia en cada servicio."
-        title={'Trabajamos para ofrecerles lo mejor'}
         items={galleryItems}
       />
       <Partners

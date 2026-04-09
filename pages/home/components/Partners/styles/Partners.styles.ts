@@ -4,7 +4,7 @@ import { device } from '../../../../../constants/breakpoints';
 export const PartnersSection = styled.section`
   position: relative;
   width: 100%;
-  padding: 70px 0 150px;
+  padding: clamp(4rem, 8vw, 7rem) 0 clamp(6rem, 12vw, 10rem);
   overflow: hidden;
   background-image: url('https://iagros.com/wp-content/uploads/2024/08/Marcas_aliadas.png');
   background-size: cover;
@@ -52,46 +52,32 @@ export const HeaderContainer = styled.div`
 `;
 
 export const SectionBadge = styled.span`
-  display: inline-block;
-  background: rgba(76, 175, 80, 0.18);
-  border: 1px solid rgba(76, 175, 80, 0.45);
-  color: #81c784;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  padding: 6px 18px;
-  border-radius: 100px;
-  margin-bottom: 18px;
+  color: #ee7007;
+  margin-bottom: 0.75rem;
 `;
 
 export const Title = styled.h2`
-  font-size: 1.4rem;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   color: #ffffff;
-  font-weight: 800;
-  margin: 0 0 14px;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-
-  @media ${device.sm} {
-    font-size: 1.8rem;
-  }
-
-  @media ${device.md} {
-    font-size: 2.4rem;
-  }
-
-  @media ${device.lg} {
-    font-size: 3rem;
-  }
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+  line-height: 1.18;
 `;
 
 export const Subtitle = styled.p`
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.6);
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  color: rgba(255, 255, 255, 0.65);
   max-width: 500px;
   margin: 0 auto;
-  line-height: 1.65;
+  line-height: 1.7;
 `;
 
 export const PartnersGrid = styled.div``;

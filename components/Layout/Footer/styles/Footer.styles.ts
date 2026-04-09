@@ -15,10 +15,11 @@ export const WaveContainer = styled.div`
   height: 20vw;
   min-height: 80px;
   max-height: 370px;
-  background: url('${process.env.NEXT_PUBLIC_BASE_PATH ||
-    ''}/images/backgrounds/footer-wave.svg')
-    no-repeat center center;
-  background-size: cover;
+  background-color: #f0ede8;
+  background-image: url('${process.env.NEXT_PUBLIC_BASE_PATH ||
+  ''}/images/backgrounds/footer-wave.svg');
+  background-repeat: no-repeat;
+  background-position: center bottom;
   margin-bottom: -1px;
 `;
 

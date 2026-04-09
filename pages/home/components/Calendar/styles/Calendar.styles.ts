@@ -4,44 +4,45 @@ import { device } from '../../../../../constants/breakpoints';
 export const CalendarSection = styled.section`
   width: 100%;
   max-width: 100vw;
-  padding: 60px 0 80px 0;
-  background-color: #f8f8f8;
+  padding: clamp(4rem, 8vw, 7rem) 0 clamp(4rem, 8vw, 7rem);
+  background-color: #f0ede8;
   overflow-x: hidden;
   box-sizing: border-box;
-  min-height: auto;
 `;
 
 export const CalendarHeader = styled.div`
   text-align: center;
-  margin-bottom: 3rem;
-  padding: 0 1rem;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
+`;
 
-  @media (max-width: 768px) {
-    margin-bottom: 2rem;
-  }
+export const CalendarEyebrow = styled.span`
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #ee7007;
+  margin-bottom: 0.75rem;
 `;
 
 export const CalendarTitle = styled.h2`
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #333;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  margin-bottom: 0.65rem;
+  color: #1e1c19;
   font-weight: 600;
-
-  @media ${device.md} {
-    font-size: 3rem;
-  }
+  line-height: 1.18;
 `;
 
 export const CalendarSubtitle = styled.p`
-  font-size: 1.2rem;
-  color: #666;
-  max-width: 700px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  color: #7a766e;
+  max-width: 520px;
   margin: 0 auto;
-  line-height: 1.6;
-
-  @media ${device.md} {
-    font-size: 1.4rem;
-  }
+  line-height: 1.7;
 `;
 
 export const CalendarContainer = styled.div`

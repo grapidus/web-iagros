@@ -7,6 +7,7 @@ import useCalendarEvents from './hooks/useCalendarEvents';
 import {
   CalendarContainer,
   CalendarContent,
+  CalendarEyebrow,
   CalendarHeader,
   CalendarSection,
   CalendarSubtitle,
@@ -57,6 +58,7 @@ const Calendar: React.FC<CalendarProps> = ({ events, title, subtitle }) => {
     <CalendarSection>
       {(title || subtitle) && (
         <CalendarHeader>
+          <CalendarEyebrow>Agenda</CalendarEyebrow>
           {title && <CalendarTitle>{title}</CalendarTitle>}
           {subtitle && <CalendarSubtitle>{subtitle}</CalendarSubtitle>}
         </CalendarHeader>

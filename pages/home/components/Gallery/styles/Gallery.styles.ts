@@ -11,86 +11,46 @@ const reducedMotion = css`
 
 export const GalleryContainer = styled.section`
   position: relative;
-  z-index: 7;
-  padding: clamp(2rem, 3.6vw, 3.4rem) 0 clamp(2.2rem, 4vw, 4rem);
   width: 100%;
-  max-width: 1220px;
-  margin: 0 auto;
-
-  @media (max-width: 768px) {
-    padding: 1.35rem 0 1.9rem;
-  }
+  background: #faf8f5;
+  padding: clamp(3.5rem, 7vw, 6rem) 0 clamp(4rem, 8vw, 7rem);
 `;
 
 export const GalleryHeader = styled.div`
   text-align: left;
-  margin: 0 auto clamp(1.3rem, 2.6vw, 2.1rem);
-  padding: 0 clamp(1rem, 2.8vw, 2rem);
-  max-width: 1200px;
-
-  @media (max-width: 768px) {
-    margin: 0 auto 1.15rem;
-    padding: 0 1rem;
-  }
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
+  max-width: 1220px;
 `;
 
 export const GalleryEyebrow = styled.span`
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-size: 0.7rem;
-  letter-spacing: 0.11em;
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
   font-weight: 600;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  margin-bottom: clamp(0.6rem, 1.3vw, 0.82rem);
-  color: #5a685e;
-
-  &::before {
-    content: '';
-    width: 1.5rem;
-    height: 1px;
-    background: rgba(31, 47, 36, 0.3);
-  }
+  color: ${theme.colors.primary};
+  margin-bottom: 0.75rem;
 `;
 
 export const GalleryTitle = styled.h2`
-  font-family: ${theme.fonts.secondary};
-  font-size: clamp(1.48rem, 3vw, 2.15rem);
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   margin: 0;
-  color: #1f2f24;
+  color: #1e1c19;
   font-weight: 600;
-  line-height: 1.22;
-  letter-spacing: -0.008em;
+  line-height: 1.18;
   max-width: 22ch;
-  text-transform: none;
-
-  @media (max-width: 768px) {
-    font-size: clamp(1.28rem, 5.6vw, 1.75rem);
-    line-height: 1.18;
-    max-width: 18ch;
-  }
 `;
 
 export const GallerySubtitle = styled.p`
-  font-family: ${theme.fonts.primary};
-  font-size: clamp(0.94rem, 1.08vw, 1rem);
-  color: #556259;
-  max-width: 50ch;
-  margin: 0.45rem 0 0;
-  line-height: 1.55;
-  text-wrap: pretty;
-
-  @media (max-width: 768px) {
-    font-size: 0.92rem;
-    line-height: 1.5;
-    max-width: 34ch;
-    margin: 0.42rem 0 0;
-  }
-
-  @media (max-width: 420px) {
-    font-size: 0.88rem;
-    max-width: 28ch;
-  }
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  color: #7a766e;
+  max-width: 52ch;
+  margin: 0.65rem 0 0;
+  line-height: 1.7;
 `;
 
 export const GalleryHeaderMeta = styled.p`
@@ -126,8 +86,8 @@ export const GalleryGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: clamp(0.9rem, 1.7vw, 1.3rem);
-  padding: 0 clamp(1rem, 2.8vw, 2rem);
-  max-width: 1200px;
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
+  max-width: 1220px;
   margin: 0 auto;
 
   @media ${device.md} {
@@ -140,8 +100,6 @@ export const GalleryGrid = styled.div`
 
   @media (max-width: 768px) {
     gap: 0.85rem;
-    padding: 0 1rem;
-    max-width: 560px;
   }
 `;
 

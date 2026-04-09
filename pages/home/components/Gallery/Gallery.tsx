@@ -2,6 +2,7 @@ import React from 'react';
 import GalleryItem, { GalleryItemProps } from './components/GalleryItem';
 import {
   GalleryContainer,
+  GalleryEyebrow,
   GalleryGrid,
   GalleryHeader,
   GallerySubtitle,
@@ -10,14 +11,21 @@ import {
 
 export interface GalleryProps {
   title: string;
+  eyebrow?: string;
   subtitle?: string;
   items: GalleryItemProps[];
 }
 
-const Gallery: React.FC<GalleryProps> = ({ title, subtitle, items }) => {
+const Gallery: React.FC<GalleryProps> = ({
+  title,
+  eyebrow,
+  subtitle,
+  items
+}) => {
   return (
     <GalleryContainer>
       <GalleryHeader>
+        {eyebrow && <GalleryEyebrow>{eyebrow}</GalleryEyebrow>}
         <GalleryTitle>{title}</GalleryTitle>
         {subtitle && <GallerySubtitle>{subtitle}</GallerySubtitle>}
       </GalleryHeader>
