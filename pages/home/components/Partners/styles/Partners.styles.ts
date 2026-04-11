@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 import { device } from '../../../../../constants/breakpoints';
+import { getAssetPath } from '../../../../../utils/getAssetPath';
 
 export const PartnersSection = styled.section`
   position: relative;
   width: 100%;
   padding: clamp(4rem, 8vw, 7rem) 0 clamp(6rem, 12vw, 10rem);
   overflow: hidden;
-  background-image: url('https://iagros.com/wp-content/uploads/2024/08/Marcas_aliadas.png');
+  background-image: url('${getAssetPath(
+    '/images/partners/background/marcas_aliadas.webp'
+  )}');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

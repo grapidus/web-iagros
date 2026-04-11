@@ -1,3 +1,5 @@
+import { getAssetPath } from '../utils/getAssetPath';
+
 export interface GalleryItem {
   id: number;
   title: string;
@@ -11,16 +13,14 @@ export const galleryItems: GalleryItem[] = [
     id: 1,
     title: 'NUESTRA ORGANIZACIÓN',
     description: 'Informate acerca de quienes somos y como podemos ayudarte.',
-    image:
-      'https://iagros.com/wp-content/uploads/2024/08/tarjeta-experiencia-360x240.png',
+    image: getAssetPath('/images/galleryHome/blog.webp'),
     alt: 'Imagen de cultivo organización agrícola'
   },
   {
     id: 2,
     title: 'AGROINSUMOS',
     description: 'Contamos con un amplio catálogo de productos, conócelos.',
-    image:
-      'https://iagros.com/wp-content/uploads/2024/08/tarjeta-experiencia-360x240.png',
+    image: getAssetPath('/images/galleryHome/agroinsumos.webp'),
     alt: 'Imagen de agroinsumos agrícolas'
   },
   {
@@ -28,8 +28,7 @@ export const galleryItems: GalleryItem[] = [
     title: 'ASESORIAS Y SERVICIOS',
     description:
       'Ofrecemos una línea completa de productos orgánicos certificados para una alimentación saludable.',
-    image:
-      'https://iagros.com/wp-content/uploads/2024/08/tarjeta-experiencia-360x240.png',
+    image: getAssetPath('/images/galleryHome/escribanos.webp'),
     alt: 'Productos orgánicos certificados'
   },
   {
@@ -37,8 +36,7 @@ export const galleryItems: GalleryItem[] = [
     title: 'Investigación y desarrollo',
     description:
       'Nuestro equipo de expertos trabaja constantemente en la investigación y desarrollo de nuevas técnicas agrícolas.',
-    image:
-      'https://iagros.com/wp-content/uploads/2024/08/tarjeta-experiencia-360x240.png',
+    image: getAssetPath('/images/galleryHome/blog.webp'),
     alt: 'Laboratorio de investigación agrícola'
   },
   {
@@ -46,8 +44,7 @@ export const galleryItems: GalleryItem[] = [
     title: 'Distribución eficiente',
     description:
       'Contamos con una red de distribución que garantiza la frescura de nuestros productos.',
-    image:
-      'https://iagros.com/wp-content/uploads/2024/08/tarjeta-experiencia-360x240.png',
+    image: getAssetPath('/images/galleryHome/agroinsumos.webp'),
     alt: 'Sistema de distribución de productos agrícolas'
   },
   {
@@ -55,8 +52,7 @@ export const galleryItems: GalleryItem[] = [
     title: 'Comunidad agrícola',
     description:
       'Trabajamos junto a comunidades locales fomentando prácticas agrícolas sostenibles.',
-    image:
-      'https://iagros.com/wp-content/uploads/2024/08/tarjeta-experiencia-360x240.png',
+    image: getAssetPath('/images/galleryHome/escribanos.webp'),
     alt: 'Comunidad agrícola trabajando en conjunto'
   }
 ];
