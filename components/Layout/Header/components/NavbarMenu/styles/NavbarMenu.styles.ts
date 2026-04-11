@@ -83,7 +83,7 @@ export const NavLink = styled.a<{ $hasSubItems?: boolean }>`
   color: #333;
   text-decoration: none;
   font-weight: 500;
-  font-size: 11px;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.3px;
   transition: color 0.3s ease;
@@ -94,7 +94,7 @@ export const NavLink = styled.a<{ $hasSubItems?: boolean }>`
   white-space: nowrap;
 
   @media ${device.xl} {
-    font-size: 12px;
+    font-size: 14px;
     padding: 0.7rem 0.8rem;
   }
 

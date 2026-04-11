@@ -12,15 +12,17 @@ export const FooterContainer = styled.footer`
 
 export const WaveContainer = styled.div`
   width: 100%;
-  height: 20vw;
-  min-height: 80px;
-  max-height: 370px;
-  background-color: #f0ede8;
-  background-image: url('${process.env.NEXT_PUBLIC_BASE_PATH ||
-  ''}/images/backgrounds/footer-wave.svg');
-  background-repeat: no-repeat;
-  background-position: center bottom;
+  height: 280px;
+  overflow: hidden;
+  line-height: 0;
   margin-bottom: -1px;
+  background-color: #ffffff;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
 `;
 
 export const FooterWrapper = styled.div`

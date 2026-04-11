@@ -12,8 +12,8 @@ const reducedMotion = css`
 export const GalleryContainer = styled.section`
   position: relative;
   width: 100%;
-  background: #f7f4ef;
-  padding: clamp(3.6rem, 7vw, 6rem) 0 clamp(4rem, 7.5vw, 6.6rem);
+  background: #ffffff;
+  padding: 56px 0px 56px;
 
   &::before {
     content: '';
@@ -30,7 +30,7 @@ export const GalleryHeader = styled.div`
   text-align: left;
   margin: 0 auto clamp(2.1rem, 4.2vw, 3rem);
   padding: 0 clamp(1.25rem, 4vw, 3rem);
-  max-width: 1180px;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
@@ -74,7 +74,7 @@ export const GalleryGrid = styled.div`
   grid-template-columns: 1fr;
   gap: clamp(0.95rem, 1.8vw, 1.25rem);
   padding: 0 clamp(1.25rem, 4vw, 3rem);
-  max-width: 1180px;
+  max-width: 1200px;
   margin: 0 auto;
 
   @media ${device.md} {
@@ -86,6 +86,12 @@ export const GalleryGrid = styled.div`
 
     > *:first-child {
       grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    > *:last-child {
+      grid-column: 3;
+      grid-row: 2;
     }
   }
 

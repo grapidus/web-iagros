@@ -27,7 +27,23 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const Footer: React.FC = () => {
   return (
     <>
-      <WaveContainer />
+      <WaveContainer>
+        <svg
+          viewBox="0 0 1440 100"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path
+            d="M0,10 C200,90 500,5 720,55 C940,105 1200,10 1440,70 L1440,100 L0,100 Z"
+            fill="#A1C881"
+          />
+          <path
+            d="M0,55 C250,100 600,30 900,72 C1100,100 1300,50 1440,80 L1440,100 L0,100 Z"
+            fill="#EE7007"
+          />
+        </svg>
+      </WaveContainer>
       <FooterContainer>
         <FooterWrapper>
           <FooterSection>
@@ -35,7 +51,7 @@ const Footer: React.FC = () => {
               src={getAssetPath('/images/logos/logo-blanco.png')}
               alt="Logo AGROS"
             />
-            <FooterTitle>Mis sitio web</FooterTitle>
+            <FooterTitle>Mi sitio web</FooterTitle>
             <SocialIcons>
               <SocialLink
                 href="https://www.youtube.com/@iagrocolombia8729"

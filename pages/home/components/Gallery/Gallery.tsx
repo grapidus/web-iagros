@@ -14,13 +14,15 @@ export interface GalleryProps {
   eyebrow?: string;
   subtitle?: string;
   items: GalleryItemProps[];
+  itemHref?: string;
 }
 
 const Gallery: React.FC<GalleryProps> = ({
   title,
   eyebrow,
   subtitle,
-  items
+  items,
+  itemHref
 }) => {
   return (
     <GalleryContainer>
@@ -38,6 +40,7 @@ const Gallery: React.FC<GalleryProps> = ({
             title={item.title}
             description={item.description}
             alt={item.alt}
+            href={itemHref}
           />
         ))}
       </GalleryGrid>

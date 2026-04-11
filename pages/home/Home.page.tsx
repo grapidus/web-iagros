@@ -16,6 +16,7 @@ function Home() {
         title="Trabajamos para ofrecerles lo mejor"
         subtitle="Comprometidos con la excelencia en cada servicio."
         items={galleryItems}
+        itemHref={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/contact/`}
       />
       <Partners
         title="NUESTRAS MARCAS ALIADAS"

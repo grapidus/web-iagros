@@ -5,14 +5,14 @@ import { getAssetPath } from '../../../../../utils/getAssetPath';
 export const PartnersSection = styled.section`
   position: relative;
   width: 100%;
-  padding: clamp(4rem, 8vw, 7rem) 0 clamp(6rem, 12vw, 10rem);
+  padding: 56px 0px 136px;
   overflow: hidden;
   background-image: url('${getAssetPath(
     '/images/partners/background/marcas_aliadas.webp'
   )}');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: scroll;
 
   &::before {
     content: '';

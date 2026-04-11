@@ -4,8 +4,8 @@ import { device } from '../../../../../constants/breakpoints';
 export const CalendarSection = styled.section`
   width: 100%;
   max-width: 100vw;
-  padding: clamp(4rem, 8vw, 7rem) 0 clamp(4rem, 8vw, 7rem);
-  background-color: #f0ede8;
+  padding: 56px 0px 56px;
+  background-color: #ffffff;
   overflow-x: hidden;
   box-sizing: border-box;
 `;

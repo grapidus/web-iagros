@@ -12,16 +12,22 @@ export interface GalleryItemProps {
   title: string;
   description?: string;
   alt?: string;
+  href?: string;
 }
 
 const GalleryItem: React.FC<GalleryItemProps> = ({
   image,
   title,
   description,
-  alt
+  alt,
+  href
 }) => {
   return (
-    <GalleryItemContainer>
+    <GalleryItemContainer
+      as={href ? 'a' : 'div'}
+      href={href}
+      style={href ? { cursor: 'pointer', textDecoration: 'none' } : undefined}
+    >
       <GalleryItemImage src={image} alt={alt || title} />
       <GalleryItemOverlay>
         <GalleryItemTitle>{title}</GalleryItemTitle>
