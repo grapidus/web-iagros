@@ -1,34 +1,67 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { adaptBlogListToLocal, adaptBlogToLocal } from '../adapters/local/blog.local.adapter';
+import { createApi } from '@reduxjs/toolkit/query/react';
+import { createIagrosBaseQuery } from '../../../lib/iagrosBaseQuery';
+import {
+  adaptBlogCategoryToLocal,
+  adaptBlogListToLocal,
+  adaptBlogToLocal
+} from '../adapters/local/blog.local.adapter';
 import { adaptParamsToServer } from '../adapters/server/blog.server.adapter';
-import { BlogListLocalParams, BlogListLocalResponse, BlogLocal } from '../models/local/blog.local.model';
-import { BlogListServerResponse, BlogServer } from '../models/server/blog.server.model';
+import {
+  BlogCategoryLocal,
+  BlogListLocalParams,
+  BlogListLocalResponse,
+  BlogLocal
+} from '../models/local/blog.local.model';
+import {
+  BlogCategoriesServerResponse,
+  BlogListServerResponse,
+  BlogServer
+} from '../models/server/blog.server.model';
 
 export const blogApi = createApi({
-  reducerPath: 'blogApi',
-  baseQuery: fetchBaseQuery({
-    baseUrl: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api',
-  }),
+  baseQuery: createIagrosBaseQuery(process.env.NEXT_PUBLIC_API_URL),
   endpoints: (builder) => ({
-
-    // GET /blogs — recibe params locales, envía params del servidor, devuelve modelo local
+    // GET /blogs — Listar artículos con filtros
     getBlogs: builder.query<BlogListLocalResponse, BlogListLocalParams>({
       query: (params) => ({
         url: '/blogs',
-        params: adaptParamsToServer(params),        // local → server
+        method: 'GET',
+        params: adaptParamsToServer(params),
+        showOnErrorAlert: true,
+        getData: (res: any) => ({ data: res.data, meta: res.meta })
       }),
-      transformResponse: (raw: BlogListServerResponse) =>
-        adaptBlogListToLocal(raw),                  // server → local
+      transformResponse: (raw: BlogListServerResponse) => {
+        return adaptBlogListToLocal(raw);
+      }
     }),
 
-    // GET /blogs/:slug — devuelve modelo local
+    // GET /blogs/:slug — Obtener un artículo por slug
     getBlogBySlug: builder.query<BlogLocal, string>({
-      query: (slug) => `/blogs/${slug}`,
-      transformResponse: (raw: BlogServer) =>
-        adaptBlogToLocal(raw),                      // server → local
+      query: (slug) => ({
+        method: 'GET',
+        url: `/blogs/${slug}`,
+        showOnErrorAlert: true
+      }),
+      transformResponse: (raw: BlogServer) => adaptBlogToLocal(raw)
     }),
 
+    // GET /blog-categories — Obtener categorías
+    getBlogCategories: builder.query<BlogCategoryLocal[], void>({
+      query: () => ({
+        method: 'GET',
+        url: '/blog-categories',
+        showOnErrorAlert: true
+      }),
+      transformResponse: (raw: BlogCategoriesServerResponse[]) => {
+        return adaptBlogCategoryToLocal(raw);
+      }
+    })
   }),
+  reducerPath: 'blogApi'
 });
 
-export const { useGetBlogsQuery, useGetBlogBySlugQuery } = blogApi;
+export const {
+  useGetBlogsQuery,
+  useGetBlogBySlugQuery,
+  useGetBlogCategoriesQuery
+} = blogApi;

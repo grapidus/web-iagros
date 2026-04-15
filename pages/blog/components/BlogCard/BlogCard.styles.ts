@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { device } from '../../../../constants/breakpoints';
 
 const categoryColors: Record<string, { bg: string; text: string }> = {
   agricola:   { bg: '#e8f5e9', text: '#2e7d32' },
@@ -6,7 +7,7 @@ const categoryColors: Record<string, { bg: string; text: string }> = {
   tecnologia: { bg: '#fff3e0', text: '#ee7007' },
 };
 
-export const CardLink = styled.a`
+export const CardLink = styled.a<{ $featured?: boolean }>`
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -24,9 +25,19 @@ export const CardLink = styled.a`
     transform: translateY(-3px);
     box-shadow: 0 10px 32px rgba(28, 46, 35, 0.1);
   }
+
+  ${({ $featured }) => $featured && css`
+    grid-column: 1 / -1;
+    flex-direction: column;
+
+    @media ${device.md} {
+      flex-direction: row;
+      height: 340px;
+    }
+  `}
 `;
 
-export const CardImage = styled.div`
+export const CardImage = styled.div<{ $featured?: boolean }>`
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -43,6 +54,14 @@ export const CardImage = styled.div`
       transform: scale(1.04);
     }
   }
+
+  ${({ $featured }) => $featured && css`
+    @media ${device.md} {
+      flex: 0 0 55%;
+      aspect-ratio: unset;
+      height: 100%;
+    }
+  `}
 `;
 
 export const CategoryBadge = styled.span<{ $category: string }>`
@@ -66,23 +85,31 @@ export const CategoryBadge = styled.span<{ $category: string }>`
   }}
 `;
 
-export const CardBody = styled.div`
+export const CardBody = styled.div<{ $featured?: boolean }>`
   display: flex;
   flex-direction: column;
   flex: 1;
   padding: 1.25rem 1.25rem 1rem;
   gap: 0.5rem;
+
+  ${({ $featured }) => $featured && css`
+    @media ${device.md} {
+      padding: 2.5rem 2rem;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+  `}
 `;
 
-export const CardTitle = styled.h3`
+export const CardTitle = styled.h3<{ $featured?: boolean }>`
   font-family: 'Fraunces', serif;
-  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  font-size: ${({ $featured }) => $featured ? 'clamp(1.3rem, 2.5vw, 1.9rem)' : 'clamp(1rem, 1.3vw, 1.15rem)'};
   font-weight: 600;
   color: #1c2e23;
   margin: 0;
-  line-height: 1.3;
+  line-height: 1.25;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: ${({ $featured }) => $featured ? '3' : '2'};
   -webkit-box-orient: vertical;
   overflow: hidden;
   transition: color 0.2s ease;
@@ -92,14 +119,14 @@ export const CardTitle = styled.h3`
   }
 `;
 
-export const CardExcerpt = styled.p`
+export const CardExcerpt = styled.p<{ $featured?: boolean }>`
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.88rem;
+  font-size: ${({ $featured }) => $featured ? '0.95rem' : '0.88rem'};
   color: #5a6e62;
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.65;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: ${({ $featured }) => $featured ? '4' : '2'};
   -webkit-box-orient: vertical;
   overflow: hidden;
 `;

@@ -23,7 +23,7 @@ export function useBlogList() {
   return {
     blogs: data?.data ?? [],
     total: data?.total ?? 0,
-    totalPages: data ? Math.ceil(data.total / PAGE_SIZE) : 0,
+    totalPages: data?.totalPages ?? 0,
     isLoading,
     isFetching,
     isError,

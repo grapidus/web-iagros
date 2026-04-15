@@ -28,28 +28,29 @@ function formatDate(iso: string) {
 
 interface BlogCardProps {
   blog: BlogLocal;
+  isFeatured?: boolean;
 }
 
-const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
+const BlogCard: React.FC<BlogCardProps> = ({ blog, isFeatured = false }) => {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   const href = `${basePath}/blog/post/?slug=${blog.slug}`;
 
   return (
-    <CardLink href={href}>
-      <CardImage>
-        <img src={blog.image} alt={blog.title} loading="lazy" />
-        <CategoryBadge $category={blog.category}>
-          {CATEGORY_LABELS[blog.category] ?? blog.category}
+    <CardLink href={href} $featured={isFeatured}>
+      <CardImage $featured={isFeatured}>
+        <img src={blog.thumbnail} alt={blog.title} loading="lazy" />
+        <CategoryBadge $category={blog.categorySlug}>
+          {blog.category}
         </CategoryBadge>
       </CardImage>
 
-      <CardBody>
-        <CardTitle>{blog.title}</CardTitle>
-        <CardExcerpt>{blog.excerpt}</CardExcerpt>
+      <CardBody $featured={isFeatured}>
+        <CardTitle $featured={isFeatured}>{blog.title}</CardTitle>
+        <CardExcerpt $featured={isFeatured}>{blog.excerpt}</CardExcerpt>
 
         <CardFooter>
           <CardMeta>
-            {formatDate(blog.publishedAt)} · {blog.readingTime} min lectura
+            {formatDate(blog.publishedAt)}
           </CardMeta>
           <ReadMore>
             Leer

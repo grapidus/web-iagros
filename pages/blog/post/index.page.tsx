@@ -1,6 +1,9 @@
 import React from 'react';
 import Layout from '../../../components/Layout/Layout';
+import BlogCard from '../components/BlogCard/BlogCard';
+import { useGetBlogsQuery } from '../api/blogApi';
 import { useBlogDetail } from './hooks/useBlogDetail';
+import { useReadingProgress } from './hooks/useReadingProgress';
 import {
   AuthorInfo,
   AuthorName,
@@ -19,6 +22,10 @@ import {
   PostPage,
   PostSkeletonHero,
   PostTitle,
+  ReadingProgressBar,
+  RelatedGrid,
+  RelatedSection,
+  RelatedTitle,
 } from './styles/BlogPost.styles';
 
 const CATEGORY_LABELS: Record<string, string> = {
@@ -37,17 +44,27 @@ function formatDate(iso: string) {
 
 const BlogPostPage: React.FC = () => {
   const { blog, isLoading, isError } = useBlogDetail();
+  const progress = useReadingProgress();
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
+  const { data: relatedData } = useGetBlogsQuery(
+    { category: blog?.category, pageSize: 4 },
+    { skip: !blog },
+  );
+  const relatedBlogs = (relatedData?.data ?? [])
+    .filter((b) => b.id !== blog?.id)
+    .slice(0, 3);
 
   return (
     <Layout>
+      <ReadingProgressBar $progress={progress} />
       <PostPage>
         {/* ── Hero ── */}
         {isLoading ? (
           <PostSkeletonHero />
         ) : blog ? (
           <PostHero>
-            <img src={blog.image} alt={blog.title} />
+            <img src={blog.thumbnail} alt={blog.title} />
             <PostHeroContent>
               <PostCategory $color={blog.category}>
                 {CATEGORY_LABELS[blog.category] ?? blog.category}
@@ -68,7 +85,7 @@ const BlogPostPage: React.FC = () => {
                     <circle cx="12" cy="12" r="10" />
                     <polyline points="12 6 12 12 16 14" />
                   </svg>
-                  {blog.readingTime} min de lectura
+                  Lectura rápida
                 </PostMetaItem>
               </PostMeta>
             </PostHeroContent>
@@ -120,6 +137,17 @@ const BlogPostPage: React.FC = () => {
             </>
           ) : null}
         </PostBody>
+
+        {relatedBlogs.length > 0 && (
+          <RelatedSection>
+            <RelatedTitle>Artículos relacionados</RelatedTitle>
+            <RelatedGrid>
+              {relatedBlogs.map((b) => (
+                <BlogCard key={b.id} blog={b} />
+              ))}
+            </RelatedGrid>
+          </RelatedSection>
+        )}
       </PostPage>
     </Layout>
   );

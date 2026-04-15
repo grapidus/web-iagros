@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 import React from 'react';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
+import NotificationToast from '../NotificationToast/NotificationToast';
 
 const Modal = dynamic(() => import('@grapidus/widget-modal').then((m) => ({ default: m.Modal })), {
   ssr: false
@@ -21,6 +22,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <main>{children}</main>
       <Footer />
       <Modal />
+      <NotificationToast />
       <WhatsAppButton
         phoneNumber="573105803425"
         message="Hola, me gustaría obtener más información."

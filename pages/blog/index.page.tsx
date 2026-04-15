@@ -75,7 +75,9 @@ const BlogListPage: React.FC = () => {
                     <BlogEmptyState />
                   </div>
                 ) : (
-                  blogs.map((blog) => <BlogCard key={blog.id} blog={blog} />)
+                  blogs.map((blog, index) => (
+                    <BlogCard key={blog.id} blog={blog} isFeatured={index === 0} />
+                  ))
                 )}
               </BlogGrid>
 

@@ -1,18 +1,25 @@
 // Modelos que usa el frontend internamente (camelCase, tipado estricto)
 
-export type BlogCategory = 'agricola' | 'pecuario' | 'tecnologia';
+export type BlogCategory = string;
+
+export interface BlogCategoryLocal {
+  id: string;
+  name: string;
+  slug: string;
+  active: boolean;
+}
 
 export interface BlogLocal {
-  id: number;
+  id: string;
   slug: string;
   title: string;
   excerpt: string;
-  content: string;
-  image: string;
+  thumbnail: string;
   category: BlogCategory;
-  author: string;
+  categorySlug: string;
   publishedAt: string;
-  readingTime: number;
+  author?: string;
+  content?: string;
 }
 
 export interface BlogListLocalResponse {
@@ -20,6 +27,7 @@ export interface BlogListLocalResponse {
   total: number;
   page: number;
   pageSize: number;
+  totalPages: number;
 }
 
 export interface BlogListLocalParams {

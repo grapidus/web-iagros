@@ -1,6 +1,20 @@
 import styled, { keyframes } from 'styled-components';
 import { device } from '../../../../constants/breakpoints';
 
+// ── Reading progress bar ────────────────────────────────────────────────────────
+
+export const ReadingProgressBar = styled.div<{ $progress: number }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: ${({ $progress }) => $progress}%;
+  background: linear-gradient(90deg, #ee7007, #f59e0b);
+  z-index: 300;
+  transition: width 0.1s linear;
+  pointer-events: none;
+`;
+
 const fadeUp = keyframes`
   from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -199,10 +213,17 @@ export const AuthorRole = styled.p`
 
 // ── Skeleton ────────────────────────────────────────────────────────────────────
 
+const shimmer = keyframes`
+  0%   { background-position: -800px 0; }
+  100% { background-position: 800px 0; }
+`;
+
 export const PostSkeletonHero = styled.div`
   width: 100%;
   height: clamp(260px, 40vw, 480px);
-  background: #d8deda;
+  background: linear-gradient(90deg, #d8deda 25%, #c8d4cb 50%, #d8deda 75%);
+  background-size: 1600px 100%;
+  animation: ${shimmer} 1.6s ease infinite;
 `;
 
 export const ErrorWrapper = styled.div`
@@ -225,5 +246,37 @@ export const ErrorWrapper = styled.div`
     font-size: 0.95rem;
     color: #7a8c82;
     margin: 0;
+  }
+`;
+
+// ── Related posts ───────────────────────────────────────────────────────────────
+
+export const RelatedSection = styled.section`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 3rem) clamp(3rem, 5vw, 5rem);
+`;
+
+export const RelatedTitle = styled.h3`
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 600;
+  color: #1c2e23;
+  margin: 0 0 1.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(28, 46, 35, 0.1);
+`;
+
+export const RelatedGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+
+  @media ${device.sm} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media ${device.md} {
+    grid-template-columns: repeat(3, 1fr);
   }
 `;
