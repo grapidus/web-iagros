@@ -18,7 +18,6 @@ export interface BlogLocal {
   category: BlogCategory;
   categorySlug: string;
   publishedAt: string;
-  author?: string;
   content?: string;
 }
 

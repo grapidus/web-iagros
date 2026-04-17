@@ -1,38 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Calendar, Clock, ArrowLeft, Link2, ExternalLink } from 'lucide-react';
+import { getAssetPath } from '../../../utils/getAssetPath';
 import Layout from '../../../components/Layout/Layout';
 import BlogCard from '../components/BlogCard/BlogCard';
 import { useGetBlogsQuery } from '../api/blogApi';
 import { useBlogDetail } from './hooks/useBlogDetail';
 import { useReadingProgress } from './hooks/useReadingProgress';
 import {
+  AuthorAvatar,
+  AuthorCard,
   AuthorInfo,
   AuthorName,
   AuthorRole,
-  AuthorSection,
   BackButton,
+  CopyBtn,
   ErrorWrapper,
+  MetaDot,
   PostBody,
   PostCategory,
   PostContent,
   PostDivider,
   PostHero,
   PostHeroContent,
+  PostLayout,
   PostMeta,
   PostMetaItem,
   PostPage,
+  PostSidebar,
   PostSkeletonHero,
   PostTitle,
   ReadingProgressBar,
   RelatedGrid,
+  RelatedHeader,
+  RelatedInner,
+  RelatedLink,
   RelatedSection,
   RelatedTitle,
+  ShareBtn,
+  ShareInline,
+  ShareLabel,
+  ShareRow,
+  SidebarCopyBtn,
+  SidebarShareBtn,
+  SidebarShareCol,
+  SidebarTitle,
+  SidebarWidget,
 } from './styles/BlogPost.styles';
-
-const CATEGORY_LABELS: Record<string, string> = {
-  agricola:   'Agrícola',
-  pecuario:   'Pecuario',
-  tecnologia: 'Tecnología',
-};
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString('es-CO', {
@@ -42,23 +55,66 @@ function formatDate(iso: string) {
   });
 }
 
+
+const SOCIAL_NETWORKS = [
+  {
+    label: 'YouTube',
+    img: getAssetPath('/images/social/youtube.png'),
+    color: '#FF0000',
+    href: 'https://www.youtube.com/@iagrocolombia8729',
+  },
+  {
+    label: 'Instagram',
+    img: getAssetPath('/images/social/instagram.png'),
+    color: '#E1306C',
+    href: 'https://www.instagram.com/iagroglobal/',
+  },
+  {
+    label: 'Facebook',
+    img: getAssetPath('/images/social/facebook.png'),
+    color: '#1877F2',
+    href: (url: string) =>
+      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+  },
+  {
+    label: 'TikTok',
+    img: getAssetPath('/images/social/tiktok.png'),
+    color: '#010101',
+    href: 'https://www.tiktok.com/@iagroglobal',
+  },
+];
+
 const BlogPostPage: React.FC = () => {
   const { blog, isLoading, isError } = useBlogDetail();
   const progress = useReadingProgress();
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  const [copied, setCopied] = useState(false);
 
   const { data: relatedData } = useGetBlogsQuery(
-    { category: blog?.category, pageSize: 4 },
-    { skip: !blog },
+    { category: blog?.categorySlug, pageSize: 4 },
+    { skip: !blog }
   );
   const relatedBlogs = (relatedData?.data ?? [])
     .filter((b) => b.id !== blog?.id)
     .slice(0, 3);
 
+  const pageUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const pageTitle = blog?.title ?? 'IAGROS Blog';
+
+  const handleCopy = () => {
+    if (typeof navigator !== 'undefined') {
+      navigator.clipboard.writeText(pageUrl).then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      });
+    }
+  };
+
   return (
     <Layout>
       <ReadingProgressBar $progress={progress} />
       <PostPage>
+
         {/* ── Hero ── */}
         {isLoading ? (
           <PostSkeletonHero />
@@ -66,25 +122,22 @@ const BlogPostPage: React.FC = () => {
           <PostHero>
             <img src={blog.thumbnail} alt={blog.title} />
             <PostHeroContent>
-              <PostCategory $color={blog.category}>
-                {CATEGORY_LABELS[blog.category] ?? blog.category}
+              <PostCategory $color={blog.categorySlug}>
+                {blog.category}
               </PostCategory>
               <PostTitle>{blog.title}</PostTitle>
               <PostMeta>
                 <PostMetaItem>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                    <rect x="3" y="4" width="18" height="18" rx="2" />
-                    <line x1="16" y1="2" x2="16" y2="6" />
-                    <line x1="8" y1="2" x2="8" y2="6" />
-                    <line x1="3" y1="10" x2="21" y2="10" />
-                  </svg>
+                  <Calendar size={13} />
                   {formatDate(blog.publishedAt)}
                 </PostMetaItem>
+                <>
+                  <MetaDot />
+                  <PostMetaItem>Equipo IAGROS</PostMetaItem>
+                </>
+                <MetaDot />
                 <PostMetaItem>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
-                  </svg>
+                  <Clock size={13} />
                   Lectura rápida
                 </PostMetaItem>
               </PostMeta>
@@ -92,60 +145,142 @@ const BlogPostPage: React.FC = () => {
           </PostHero>
         ) : null}
 
-        {/* ── Cuerpo ── */}
-        <PostBody>
-          <BackButton href={`${basePath}/blog/`}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-              <line x1="19" y1="12" x2="5" y2="12" />
-              <polyline points="12 19 5 12 12 5" />
-            </svg>
-            Volver al blog
-          </BackButton>
+        {/* ── Article layout + Sidebar ── */}
+        <PostLayout>
+          <PostBody>
+            <BackButton href={`${basePath}/blog/`}>
+              <ArrowLeft size={15} />
+              Volver al blog
+            </BackButton>
 
-          {isError || (!isLoading && !blog) ? (
-            <ErrorWrapper>
-              <h2>Artículo no encontrado</h2>
-              <p>El artículo que buscas no existe o fue eliminado.</p>
-            </ErrorWrapper>
-          ) : isLoading ? (
-            // Skeleton simple del cuerpo
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              {[100, 85, 95, 70, 90, 60].map((w, i) => (
+            {isError || (!isLoading && !blog) ? (
+              <ErrorWrapper>
+                <h2>Artículo no encontrado</h2>
+                <p>El artículo que buscas no existe o fue eliminado.</p>
+              </ErrorWrapper>
+            ) : isLoading ? (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {[100, 85, 95, 70, 90, 60, 80, 75].map((w, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      height: i === 0 ? '28px' : '16px',
+                      width: `${w}%`,
+                      background: '#e8ede9',
+                      borderRadius: '6px',
+                    }}
+                  />
+                ))}
+              </div>
+            ) : blog ? (
+              <>
+                <PostContent dangerouslySetInnerHTML={{ __html: blog.content ?? '' }} />
+
+                <PostDivider />
+
+                {/* Share inline — visible solo en mobile */}
+                <ShareInline>
+                  <ShareLabel>Síguenos en redes</ShareLabel>
+                  <ShareRow>
+                    {SOCIAL_NETWORKS.map((net) => (
+                      <ShareBtn
+                        key={net.label}
+                        href={typeof net.href === 'function' ? net.href(pageUrl) : net.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        $color={net.color}
+                        aria-label={net.label}
+                      >
+                        <img src={net.img} alt={net.label} width={18} height={18} style={{ objectFit: 'contain' }} />
+                        {net.label}
+                      </ShareBtn>
+                    ))}
+                    <CopyBtn onClick={handleCopy} aria-label="Copiar enlace">
+                      <Link2 size={14} />
+                      {copied ? '¡Copiado!' : 'Copiar enlace'}
+                    </CopyBtn>
+                  </ShareRow>
+                </ShareInline>
+
+                {/* Author card */}
+                <AuthorCard>
+                  <AuthorAvatar>IA</AuthorAvatar>
+                  <AuthorInfo>
+                    <AuthorName>Equipo IAGROS</AuthorName>
+                    <AuthorRole>Equipo Editorial · IAGROS</AuthorRole>
+                  </AuthorInfo>
+                  <ExternalLink size={16} color="#c0ccc4" />
+                </AuthorCard>
+              </>
+            ) : null}
+          </PostBody>
+
+          {/* ── Sidebar (desktop only) ── */}
+          <PostSidebar>
+            <SidebarWidget>
+              <SidebarTitle>Síguenos en redes</SidebarTitle>
+              <SidebarShareCol>
+                {SOCIAL_NETWORKS.map((net) => (
+                  <SidebarShareBtn
+                    key={net.label}
+                    href={typeof net.href === 'function' ? net.href(pageUrl) : net.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    $color={net.color}
+                    aria-label={net.label}
+                  >
+                    <img src={net.img} alt={net.label} width={18} height={18} style={{ objectFit: 'contain' }} />
+                    {net.label}
+                  </SidebarShareBtn>
+                ))}
+                <SidebarCopyBtn onClick={handleCopy} aria-label="Copiar enlace">
+                  <Link2 size={14} />
+                  {copied ? '¡Enlace copiado!' : 'Copiar enlace'}
+                </SidebarCopyBtn>
+              </SidebarShareCol>
+            </SidebarWidget>
+
+            {blog && (
+              <SidebarWidget>
+                <SidebarTitle>Categoría</SidebarTitle>
                 <div
-                  key={i}
                   style={{
-                    height: i === 0 ? '28px' : '16px',
-                    width: `${w}%`,
-                    background: '#e8ede9',
-                    borderRadius: '6px',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.4rem',
+                    padding: '0.4rem 0.9rem',
+                    background: 'rgba(238,112,7,0.08)',
+                    border: '1px solid rgba(238,112,7,0.2)',
+                    borderRadius: '100px',
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontSize: '0.82rem',
+                    fontWeight: 600,
+                    color: '#ee7007',
                   }}
-                />
-              ))}
-            </div>
-          ) : blog ? (
-            <>
-              <PostContent dangerouslySetInnerHTML={{ __html: blog.content }} />
+                >
+                  {blog.category}
+                </div>
+              </SidebarWidget>
+            )}
+          </PostSidebar>
+        </PostLayout>
 
-              <PostDivider />
-
-              <AuthorSection>
-                <AuthorInfo>
-                  <AuthorName>{blog.author}</AuthorName>
-                  <AuthorRole>Equipo AGROS</AuthorRole>
-                </AuthorInfo>
-              </AuthorSection>
-            </>
-          ) : null}
-        </PostBody>
-
+        {/* ── Related posts ── */}
         {relatedBlogs.length > 0 && (
           <RelatedSection>
-            <RelatedTitle>Artículos relacionados</RelatedTitle>
-            <RelatedGrid>
-              {relatedBlogs.map((b) => (
-                <BlogCard key={b.id} blog={b} />
-              ))}
-            </RelatedGrid>
+            <RelatedInner>
+              <RelatedHeader>
+                <RelatedTitle>Artículos relacionados</RelatedTitle>
+                <RelatedLink href={`${basePath}/blog/`}>
+                  Ver todos →
+                </RelatedLink>
+              </RelatedHeader>
+              <RelatedGrid>
+                {relatedBlogs.map((b) => (
+                  <BlogCard key={b.id} blog={b} />
+                ))}
+              </RelatedGrid>
+            </RelatedInner>
           </RelatedSection>
         )}
       </PostPage>

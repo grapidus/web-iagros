@@ -17,7 +17,6 @@ export interface BlogServer {
   active: boolean;
   createdAt: string;
   updatedAt: string;
-  author?: string;
   content?: string;
 }
 

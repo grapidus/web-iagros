@@ -39,7 +39,7 @@ export const blogApi = createApi({
     getBlogBySlug: builder.query<BlogLocal, string>({
       query: (slug) => ({
         method: 'GET',
-        url: `/blogs/${slug}`,
+        url: `/blogs/by-slug/${slug}`,
         showOnErrorAlert: true
       }),
       transformResponse: (raw: BlogServer) => adaptBlogToLocal(raw)

@@ -22,7 +22,6 @@ export function adaptBlogToLocal(server: BlogServer): BlogLocal {
     category: server.blogCategory.name,
     categorySlug: server.blogCategory.slug,
     publishedAt: server.publishedAt,
-    ...(server.author !== undefined && { author: server.author }),
     ...(server.content !== undefined && { content: server.content })
   };
 }
