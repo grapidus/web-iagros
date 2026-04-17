@@ -12,48 +12,44 @@ export const galleryItems: GalleryItem[] = [
   {
     id: 1,
     title: 'NUESTRA ORGANIZACIÓN',
-    description: 'Informate acerca de quienes somos y como podemos ayudarte.',
-    image: getAssetPath('/images/galleryHome/blog.webp'),
-    alt: 'Imagen de cultivo organización agrícola'
+    description: 'Entérate de quiénes somos y cómo podemos ayudarte a crecer.',
+    image: getAssetPath('/images/galleryHome/nuestra org.webp'),
+    alt: 'Nuestra organización IAGROS'
   },
   {
     id: 2,
     title: 'AGROINSUMOS',
     description: 'Contamos con un amplio catálogo de productos, conócelos.',
     image: getAssetPath('/images/galleryHome/agroinsumos.webp'),
-    alt: 'Imagen de agroinsumos agrícolas'
+    alt: 'Agroinsumos agrícolas IAGROS'
   },
   {
     id: 3,
-    title: 'ASESORIAS Y SERVICIOS',
-    description:
-      'Ofrecemos una línea completa de productos orgánicos certificados para una alimentación saludable.',
-    image: getAssetPath('/images/galleryHome/escribanos.webp'),
-    alt: 'Productos orgánicos certificados'
+    title: 'ASESORÍAS Y SERVICIOS',
+    description: 'Acompañamiento técnico especializado para el campo colombiano.',
+    image: getAssetPath('/images/galleryHome/asesorias y serv.webp'),
+    alt: 'Asesorías y servicios agrícolas'
   },
   {
     id: 4,
-    title: 'Investigación y desarrollo',
-    description:
-      'Nuestro equipo de expertos trabaja constantemente en la investigación y desarrollo de nuevas técnicas agrícolas.',
-    image: getAssetPath('/images/galleryHome/blog.webp'),
-    alt: 'Laboratorio de investigación agrícola'
+    title: 'EXPERIENCIAS',
+    description: 'Conoce las historias de éxito de nuestros productores aliados.',
+    image: getAssetPath('/images/galleryHome/experiencias.webp'),
+    alt: 'Experiencias de productores con IAGROS'
   },
   {
     id: 5,
-    title: 'Distribución eficiente',
-    description:
-      'Contamos con una red de distribución que garantiza la frescura de nuestros productos.',
-    image: getAssetPath('/images/galleryHome/agroinsumos.webp'),
-    alt: 'Sistema de distribución de productos agrícolas'
+    title: 'BLOG & NOTICIAS',
+    description: 'Artículos técnicos y novedades del sector agropecuario.',
+    image: getAssetPath('/images/galleryHome/blog.webp'),
+    alt: 'Blog y noticias del sector agrícola'
   },
   {
     id: 6,
-    title: 'Comunidad agrícola',
-    description:
-      'Trabajamos junto a comunidades locales fomentando prácticas agrícolas sostenibles.',
+    title: 'ESCRÍBENOS',
+    description: 'Estamos listos para atenderte y resolver todas tus dudas.',
     image: getAssetPath('/images/galleryHome/escribanos.webp'),
-    alt: 'Comunidad agrícola trabajando en conjunto'
+    alt: 'Contáctanos IAGROS'
   }
 ];
 
