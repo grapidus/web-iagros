@@ -1,23 +1,93 @@
+import { Award, Leaf, ShieldCheck, Star, Lightbulb, Users, TrendingUp, Puzzle, Gem } from 'lucide-react';
 import HeroSection from '../../components/HeroSection/HeroSection';
 import Layout from '../../components/Layout/Layout';
 import {
-  ContentSection,
-  FocusIcon,
-  FocusItem,
-  FocusTitle,
-  MainContent,
+  AccentDivider,
+  EyebrowLabel,
+  IntroSection,
+  LeadText,
+  MainTitle,
   MissionContainer,
-  MissionFocus,
-  MissionValues,
-  Paragraph,
+  PillarCard,
+  PillarIconWrap,
+  PillarText,
+  PillarTitle,
+  PillarsGrid,
+  PillarsSection,
+  QuoteAccent,
+  QuoteInner,
   QuoteSection,
   QuoteText,
+  SectionEyebrow,
+  SectionHeader,
   SectionTitle,
-  TextContent,
-  ValueItem,
-  VideoContainer,
-  VideoSection
+  ValueCard,
+  ValueNumber,
+  ValueText,
+  ValueTitle,
+  ValuesGrid,
+  ValuesSection
 } from './styles/Mission.styles';
+
+const PILLARS = [
+  {
+    icon: <Leaf size={26} color="#fff" strokeWidth={2} />,
+    bg: 'linear-gradient(135deg, #3d8b4a, #61CE70)',
+    title: 'Sustentabilidad',
+    text: 'Promovemos prácticas que respetan el medio ambiente y contribuyen al desarrollo sostenible del sector.'
+  },
+  {
+    icon: <Award size={26} color="#fff" strokeWidth={2} />,
+    bg: 'linear-gradient(135deg, #c05e00, #ee7007)',
+    title: 'Calidad',
+    text: 'Ofrecemos insumos y servicios de alta calidad que satisfacen las necesidades específicas de cada cliente.'
+  },
+  {
+    icon: <ShieldCheck size={26} color="#fff" strokeWidth={2} />,
+    bg: 'linear-gradient(135deg, #1a2e1d, #2d5234)',
+    title: 'Confianza',
+    text: 'Construimos relaciones basadas en la confianza, la excelencia y el compromiso con el progreso.'
+  }
+];
+
+const VALUES = [
+  {
+    num: '01',
+    icon: <Star size={18} />,
+    title: 'Experiencia Valiosa',
+    text: 'Creamos experiencias significativas para nuestros clientes internos y externos.'
+  },
+  {
+    num: '02',
+    icon: <Award size={18} />,
+    title: 'Alta Calidad',
+    text: 'Ofrecemos productos y servicios que cumplen con los más altos estándares del sector.'
+  },
+  {
+    num: '03',
+    icon: <Puzzle size={18} />,
+    title: 'Soluciones Específicas',
+    text: 'Adaptamos nuestras soluciones a las necesidades particulares de cada sector.'
+  },
+  {
+    num: '04',
+    icon: <TrendingUp size={18} />,
+    title: 'Valor Agregado',
+    text: 'Proporcionamos beneficios adicionales que mejoran la experiencia de nuestros clientes.'
+  },
+  {
+    num: '05',
+    icon: <Users size={18} />,
+    title: 'Respaldo Integral',
+    text: 'Acompañamos a nuestros clientes en todas las etapas de su desarrollo.'
+  },
+  {
+    num: '06',
+    icon: <Lightbulb size={18} />,
+    title: 'Innovación',
+    text: 'Buscamos constantemente nuevas formas de mejorar nuestros productos y servicios.'
+  }
+];
 
 function Mission() {
   return (
@@ -36,130 +106,77 @@ function Mission() {
       />
 
       <MissionContainer>
-        <MainContent>
-          <ContentSection>
-            <SectionTitle>Nuestra Misión</SectionTitle>
 
-            <TextContent>
-              <Paragraph>
-                En Iagro, nuestra misión es ofrecer una experiencia valiosa y
-                agradable a nuestros clientes internos y externos. Nos dedicamos
-                a proporcionar insumos y servicios de alta calidad que
-                satisfagan las necesidades específicas del sector agropecuario,
-                ambiental y de la construcción.
-              </Paragraph>
+        {/* ── Intro ── */}
+        <IntroSection>
+          <EyebrowLabel>Quiénes somos</EyebrowLabel>
+          <MainTitle>
+            Valor real para el <span>campo y la industria</span>
+          </MainTitle>
+          <LeadText>
+            En IAGROS, ofrecemos una experiencia valiosa a nuestros clientes
+            internos y externos, proporcionando insumos y servicios de alta
+            calidad para el sector agropecuario, ambiental y de la construcción.
+            Trabajamos con un enfoque en la sustentabilidad y el valor agregado,
+            impulsando la productividad y el desarrollo sostenible.
+          </LeadText>
+        </IntroSection>
 
-              <Paragraph>
-                Trabajamos con un enfoque en la sustentabilidad y el valor
-                agregado, asegurándonos de que nuestros clientes encuentren en
-                nosotros un respaldo integral y soluciones innovadoras que
-                impulsen la productividad y el desarrollo sostenible en sus
-                actividades.
-              </Paragraph>
+        <AccentDivider>
+          <Gem size={14} color="#ee7007" />
+        </AccentDivider>
 
-              <MissionFocus>
-                <FocusItem>
-                  <FocusIcon>🌱</FocusIcon>
-                  <FocusTitle>Sustentabilidad</FocusTitle>
-                  <Paragraph>
-                    Promovemos prácticas que respetan el medio ambiente y
-                    contribuyen al desarrollo sostenible del sector.
-                  </Paragraph>
-                </FocusItem>
+        {/* ── Tres pilares ── */}
+        <PillarsSection>
+          <SectionHeader>
+            <SectionEyebrow>Nuestros pilares</SectionEyebrow>
+            <SectionTitle>Lo que nos mueve cada día</SectionTitle>
+          </SectionHeader>
 
-                <FocusItem>
-                  <FocusIcon>💼</FocusIcon>
-                  <FocusTitle>Calidad</FocusTitle>
-                  <Paragraph>
-                    Ofrecemos insumos y servicios de alta calidad que satisfacen
-                    las necesidades específicas de cada cliente.
-                  </Paragraph>
-                </FocusItem>
+          <PillarsGrid>
+            {PILLARS.map((p) => (
+              <PillarCard key={p.title}>
+                <PillarIconWrap $color={p.bg}>{p.icon}</PillarIconWrap>
+                <PillarTitle>{p.title}</PillarTitle>
+                <PillarText>{p.text}</PillarText>
+              </PillarCard>
+            ))}
+          </PillarsGrid>
+        </PillarsSection>
 
-                <FocusItem>
-                  <FocusIcon>🤝</FocusIcon>
-                  <FocusTitle>Confianza</FocusTitle>
-                  <Paragraph>
-                    Construimos relaciones basadas en la confianza, la
-                    excelencia y el compromiso con el progreso.
-                  </Paragraph>
-                </FocusItem>
-              </MissionFocus>
+        {/* ── Quote ── */}
+        <QuoteSection>
+          <QuoteInner>
+            <QuoteText>
+              "Nuestra prioridad es construir relaciones basadas en la
+              confianza, la excelencia y el compromiso con el progreso de
+              nuestros clientes y comunidades."
+            </QuoteText>
+            <QuoteAccent>
+              <span>Equipo IAGROS</span>
+            </QuoteAccent>
+          </QuoteInner>
+        </QuoteSection>
 
-              <QuoteSection>
-                <QuoteText>
-                  "Nuestra prioridad es construir relaciones basadas en la
-                  confianza, la excelencia y el compromiso con el progreso de
-                  nuestros clientes y comunidades."
-                </QuoteText>
-              </QuoteSection>
+        {/* ── Valores ── */}
+        <ValuesSection>
+          <SectionHeader>
+            <SectionEyebrow>Nuestro ADN</SectionEyebrow>
+            <SectionTitle>Valores que nos definen</SectionTitle>
+          </SectionHeader>
 
-              <SectionTitle>Valores que nos definen</SectionTitle>
+          <ValuesGrid>
+            {VALUES.map((v) => (
+              <ValueCard key={v.num}>
+                <ValueNumber>{v.num}</ValueNumber>
+                <ValueTitle>{v.title}</ValueTitle>
+                <ValueText>{v.text}</ValueText>
+              </ValueCard>
+            ))}
+          </ValuesGrid>
+        </ValuesSection>
 
-              <MissionValues>
-                <ValueItem>
-                  <h4>Experiencia Valiosa</h4>
-                  <p>
-                    Creamos experiencias significativas para nuestros clientes
-                    internos y externos.
-                  </p>
-                </ValueItem>
 
-                <ValueItem>
-                  <h4>Alta Calidad</h4>
-                  <p>
-                    Ofrecemos productos y servicios que cumplen con los más
-                    altos estándares.
-                  </p>
-                </ValueItem>
-
-                <ValueItem>
-                  <h4>Soluciones Específicas</h4>
-                  <p>
-                    Adaptamos nuestras soluciones a las necesidades particulares
-                    de cada sector.
-                  </p>
-                </ValueItem>
-
-                <ValueItem>
-                  <h4>Valor Agregado</h4>
-                  <p>
-                    Proporcionamos beneficios adicionales que mejoran la
-                    experiencia de nuestros clientes.
-                  </p>
-                </ValueItem>
-
-                <ValueItem>
-                  <h4>Respaldo Integral</h4>
-                  <p>
-                    Acompañamos a nuestros clientes en todas las etapas de su
-                    desarrollo.
-                  </p>
-                </ValueItem>
-
-                <ValueItem>
-                  <h4>Innovación</h4>
-                  <p>
-                    Buscamos constantemente nuevas formas de mejorar nuestros
-                    productos y servicios.
-                  </p>
-                </ValueItem>
-              </MissionValues>
-            </TextContent>
-          </ContentSection>
-
-          <VideoSection>
-            <SectionTitle>Conoce Nuestra Empresa</SectionTitle>
-            <VideoContainer>
-              <iframe
-                src="https://www.youtube.com/embed/q0YNlXQ8_zc"
-                title="Video de Iagro"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </VideoContainer>
-          </VideoSection>
-        </MainContent>
       </MissionContainer>
     </Layout>
   );

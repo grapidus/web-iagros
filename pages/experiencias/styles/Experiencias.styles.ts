@@ -1,73 +1,79 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { size } from '../../../constants/breakpoints';
 import theme from '../../../styles/theme';
+
+const fadeUp = keyframes`
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+`;
 
 export const ExperienceContainer = styled.div`
   position: relative;
   width: 100%;
   overflow: hidden;
-  background:
-    radial-gradient(
-      circle at 12% 12%,
-      rgba(97, 206, 112, 0.2) 0%,
-      rgba(97, 206, 112, 0) 35%
-    ),
-    radial-gradient(
-      circle at 88% 18%,
-      rgba(238, 112, 7, 0.16) 0%,
-      rgba(238, 112, 7, 0) 34%
-    ),
-    linear-gradient(180deg, #f8fbf8 0%, #f5f5f5 48%, #ffffff 100%);
+  background: #fafaf8;
 `;
 
 export const MainContent = styled.div`
   width: min(1180px, 100% - 2rem);
-  margin: 2rem auto 4rem;
+  margin: 3rem auto 5rem;
   display: grid;
-  gap: 2.25rem;
+  gap: 3rem;
+  animation: ${fadeUp} 0.7s ease both;
 
   @media (min-width: ${size.md}px) {
     width: min(1180px, 100% - 4rem);
-    margin: 3.5rem auto 5rem;
-    gap: 2.75rem;
+    margin: 4.5rem auto 7rem;
+    gap: 3.5rem;
   }
 `;
 
 export const Section = styled.section`
   display: grid;
-  gap: 1rem;
+  gap: 1.25rem;
 `;
 
 export const SectionEyebrow = styled.span`
   display: inline-flex;
   width: fit-content;
-  padding: 0.45rem 0.85rem;
+  padding: 0.4rem 1rem;
   border-radius: 999px;
-  font-size: 0.76rem;
-  letter-spacing: 0.12em;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
   font-weight: 700;
+  text-transform: uppercase;
   color: #2f5e36;
-  background: rgba(97, 206, 112, 0.2);
+  background: rgba(97, 206, 112, 0.15);
+  border: 1px solid rgba(97, 206, 112, 0.3);
 `;
 
 export const ExperienceTitle = styled.h1`
-  font-size: clamp(1.85rem, 1.2rem + 2.4vw, 3rem);
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 1.2rem + 2.8vw, 3.2rem);
   line-height: 1.1;
-  letter-spacing: -0.015em;
-  color: ${theme.colors.text};
+  letter-spacing: -0.02em;
+  color: #1a2e1d;
+
+  span {
+    color: ${theme.colors.primary};
+  }
 `;
 
 export const Lead = styled.p`
-  max-width: 76ch;
-  font-size: clamp(1.02rem, 0.95rem + 0.35vw, 1.24rem);
-  line-height: 1.78;
-  color: #3b3b3b;
+  font-family: 'DM Sans', sans-serif;
+  max-width: 72ch;
+  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.18rem);
+  line-height: 1.8;
+  color: #4a5e50;
 `;
+
+/* ── Meta items ─────────────────────────────────────────────────────────── */
 
 export const MetaList = styled.div`
   display: grid;
   gap: 0.75rem;
-  margin-top: 0.2rem;
+  margin-top: 0.5rem;
 
   @media (min-width: ${size.md}px) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -75,65 +81,75 @@ export const MetaList = styled.div`
 `;
 
 export const MetaItem = styled.article`
-  display: grid;
-  gap: 0.55rem;
-  padding: 1rem 1rem 1.05rem;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(97, 206, 112, 0.2);
-  box-shadow: 0 6px 24px rgba(44, 73, 47, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid rgba(97, 206, 112, 0.18);
+  box-shadow: 0 4px 20px rgba(44, 73, 47, 0.06);
+  font-family: 'DM Sans', sans-serif;
   color: #2f2f2f;
+  font-size: 0.95rem;
+  line-height: 1.4;
 `;
 
 export const Badge = styled.span`
   width: fit-content;
-  font-size: 0.73rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: ${theme.colors.primary};
 `;
+
+/* ── Divider ────────────────────────────────────────────────────────────── */
 
 export const DividerGlow = styled.div`
   height: 1px;
   background: linear-gradient(
     90deg,
     rgba(238, 112, 7, 0) 0%,
-    rgba(238, 112, 7, 0.55) 35%,
-    rgba(97, 206, 112, 0.6) 65%,
+    rgba(238, 112, 7, 0.5) 35%,
+    rgba(97, 206, 112, 0.55) 65%,
     rgba(97, 206, 112, 0) 100%
   );
 `;
 
+/* ── Story ──────────────────────────────────────────────────────────────── */
+
 export const SectionHeading = styled.h2`
-  font-size: clamp(1.35rem, 1.05rem + 1.1vw, 2.05rem);
-  line-height: 1.25;
-  color: #213326;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.4rem, 1.1rem + 1.1vw, 2.1rem);
+  line-height: 1.2;
+  color: #1a2e1d;
 `;
 
 export const StoryCard = styled.div`
   display: grid;
   gap: 1rem;
-  padding: 1.25rem;
-  border-radius: 18px;
-  background: linear-gradient(
-    160deg,
-    rgba(255, 255, 255, 0.92),
-    rgba(248, 252, 248, 0.9)
-  );
-  border: 1px solid rgba(97, 206, 112, 0.2);
-  box-shadow: 0 12px 30px rgba(44, 73, 47, 0.1);
+  padding: 1.5rem;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid rgba(97, 206, 112, 0.18);
+  box-shadow: 0 8px 28px rgba(44, 73, 47, 0.08);
 
   @media (min-width: ${size.md}px) {
-    padding: 1.6rem;
+    padding: 2rem;
   }
 `;
 
 export const StoryText = styled.p`
-  color: #333;
+  font-family: 'DM Sans', sans-serif;
+  color: #4a5e50;
   line-height: 1.82;
   font-size: 1.04rem;
+  margin: 0;
 `;
+
+/* ── Outcomes ───────────────────────────────────────────────────────────── */
 
 export const Outcomes = styled.div`
   display: flex;
@@ -144,26 +160,27 @@ export const Outcomes = styled.div`
 export const OutcomeChip = styled.span`
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.45rem;
   border-radius: 999px;
-  padding: 0.58rem 0.95rem;
-  font-size: 0.9rem;
+  padding: 0.55rem 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
   line-height: 1.2;
   color: #1f4226;
-  background: rgba(97, 206, 112, 0.17);
-  border: 1px solid rgba(97, 206, 112, 0.3);
+  background: rgba(97, 206, 112, 0.12);
+  border: 1px solid rgba(97, 206, 112, 0.28);
 
-  &::before {
-    content: '•';
-    color: ${theme.colors.primary};
-    font-size: 1rem;
-    line-height: 1;
+  svg {
+    color: ${theme.colors.secondary};
+    flex-shrink: 0;
   }
 `;
 
+/* ── Insight cards ──────────────────────────────────────────────────────── */
+
 export const InsightGrid = styled.div`
   display: grid;
-  gap: 0.9rem;
+  gap: 1rem;
 
   @media (min-width: ${size.md}px) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -171,50 +188,61 @@ export const InsightGrid = styled.div`
 `;
 
 export const InsightCard = styled.article`
-  position: relative;
-  padding: 1rem;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.86);
-  border: 1px solid rgba(238, 112, 7, 0.2);
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid rgba(28, 46, 35, 0.07);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s;
+  cursor: default;
 
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      145deg,
-      rgba(238, 112, 7, 0.08),
-      rgba(97, 206, 112, 0.05)
-    );
-    pointer-events: none;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    border-color: rgba(238, 112, 7, 0.2);
   }
 `;
 
+export const InsightIconWrap = styled.div<{ $color: string }>`
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: ${({ $color }) => $color};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+`;
+
 export const InsightTitle = styled.h3`
-  position: relative;
-  z-index: 1;
-  margin-bottom: 0.45rem;
-  color: #27442d;
-  font-size: 1.05rem;
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a2e1d;
+  margin: 0;
 `;
 
 export const InsightDescription = styled.p`
-  position: relative;
-  z-index: 1;
-  color: #3f3f3f;
-  line-height: 1.62;
-  font-size: 0.96rem;
+  font-family: 'DM Sans', sans-serif;
+  color: #5a7060;
+  line-height: 1.65;
+  font-size: 0.93rem;
+  margin: 0;
 `;
+
+/* ── Video section ──────────────────────────────────────────────────────── */
 
 export const VideoSection = styled.section`
   display: grid;
-  gap: 1rem;
+  gap: 1.5rem;
 `;
 
 export const VideoGrid = styled.div`
   display: grid;
-  gap: 1rem;
+  gap: 1.25rem;
 
   @media (min-width: ${size.md}px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -223,15 +251,20 @@ export const VideoGrid = styled.div`
 
 export const VideoCard = styled.article`
   display: grid;
-  gap: 0.7rem;
-  padding: 0.65rem;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(44, 73, 47, 0.12);
-  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.08);
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid rgba(44, 73, 47, 0.08);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
+  transition: box-shadow 0.25s ease;
+
+  &:hover {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  }
 
   @media (min-width: ${size.md}px) {
-    padding: 0.8rem;
+    padding: 0.9rem;
   }
 `;
 
@@ -239,20 +272,22 @@ export const VideoEmbed = styled.iframe`
   width: 100%;
   aspect-ratio: 16 / 9;
   border: 0;
-  border-radius: 10px;
+  border-radius: 12px;
 `;
 
 export const VideoPlayer = styled.video`
   width: 100%;
   aspect-ratio: 16 / 9;
   border: 0;
-  border-radius: 10px;
+  border-radius: 12px;
   background: #111;
 `;
 
 export const VideoCaption = styled.p`
-  color: #4a4a4a;
+  font-family: 'DM Sans', sans-serif;
+  color: #5a7060;
   line-height: 1.5;
-  font-size: 0.88rem;
-  padding: 0 0.2rem 0.2rem;
+  font-size: 0.85rem;
+  padding: 0 0.25rem 0.25rem;
+  margin: 0;
 `;

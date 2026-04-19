@@ -1,3 +1,4 @@
+import { CheckCircle, RefreshCw, ShieldCheck, Sprout } from 'lucide-react';
 import HeroSection from '../../components/HeroSection/HeroSection';
 import Layout from '../../components/Layout/Layout';
 import {
@@ -8,6 +9,7 @@ import {
   InsightCard,
   InsightDescription,
   InsightGrid,
+  InsightIconWrap,
   InsightTitle,
   Lead,
   MainContent,
@@ -28,31 +30,50 @@ import {
   VideoSection
 } from './styles/Experiencias.styles';
 
+const INSIGHTS = [
+  {
+    icon: <Sprout size={22} color="#fff" strokeWidth={2} />,
+    bg: 'linear-gradient(135deg, #3d8b4a, #61CE70)',
+    title: 'Prevención continua',
+    text: 'Iniciar temprano evita que la plaga escale y complique etapas críticas del cultivo.'
+  },
+  {
+    icon: <RefreshCw size={22} color="#fff" strokeWidth={2} />,
+    bg: 'linear-gradient(135deg, #c05e00, #ee7007)',
+    title: 'Ritmo de aplicación',
+    text: 'La frecuencia fija cada 15 días mantiene cobertura estable y facilita el seguimiento en campo.'
+  },
+  {
+    icon: <ShieldCheck size={22} color="#fff" strokeWidth={2} />,
+    bg: 'linear-gradient(135deg, #1a2e1d, #2d5234)',
+    title: 'Control natural',
+    text: 'Se prioriza el equilibrio biológico para reducir daños sin estrategias invasivas.'
+  }
+];
+
+const outcomes = [
+  'Control preventivo cada 15 días durante todo el ciclo',
+  'Reducción de daños por babosas sin enfoques agresivos',
+  'Mayor estabilidad en salud del cultivo a largo plazo',
+  'Manejo natural para sostener el equilibrio del ecosistema'
+];
+
+const videos = [
+  {
+    title: 'Experiencia de campo: control de babosas con Aguaji',
+    type: 'youtube',
+    src: 'https://www.youtube.com/embed/q0YNlXQ8_zc',
+    caption: 'Registro audiovisual del manejo preventivo y aplicación en campo.'
+  },
+  {
+    title: 'Experiencia: insumos para producción sustentable',
+    type: 'mp4',
+    src: 'https://iagros.com/wp-content/uploads/2024/10/Experiencia-insumos-produccion-sustentable.mp4',
+    caption: 'Video complementario del proceso y resultados en producción sustentable.'
+  }
+] as const;
+
 function Experiencias() {
-  const outcomes = [
-    'Control preventivo cada 15 dias durante todo el ciclo',
-    'Reduccion de danos por babosas sin enfoques agresivos',
-    'Mayor estabilidad en salud del cultivo a largo plazo',
-    'Manejo natural para sostener el equilibrio del ecosistema'
-  ];
-
-  const videos = [
-    {
-      title: 'Experiencia de campo: control de babosas con Aguaji',
-      type: 'youtube',
-      src: 'https://www.youtube.com/embed/q0YNlXQ8_zc',
-      caption:
-        'Registro audiovisual del manejo preventivo y aplicacion en campo.'
-    },
-    {
-      title: 'Experiencia: insumos para produccion sustentable',
-      type: 'mp4',
-      src: 'https://iagros.com/wp-content/uploads/2024/10/Experiencia-insumos-produccion-sustentable.mp4',
-      caption:
-        'Video complementario del proceso y resultados en produccion sustentable.'
-    }
-  ] as const;
-
   return (
     <Layout>
       <HeroSection
@@ -70,14 +91,16 @@ function Experiencias() {
 
       <ExperienceContainer>
         <MainContent>
+
+          {/* ── Intro ── */}
           <Section>
-            <SectionEyebrow>EXPERIENCIAS REALES</SectionEyebrow>
+            <SectionEyebrow>Experiencias reales</SectionEyebrow>
             <ExperienceTitle>
-              Insumos para la produccion sustentable
+              Insumos para la producción <span>sustentable</span>
             </ExperienceTitle>
             <Lead>
               Conocemos resultados cuando el manejo preventivo se vuelve
-              disciplina diaria. Esta experiencia documenta como un control
+              disciplina diaria. Esta experiencia documenta cómo un control
               natural, aplicado de manera constante, protege el cultivo sin
               comprometer el equilibrio del entorno.
             </Lead>
@@ -85,11 +108,11 @@ function Experiencias() {
             <MetaList>
               <MetaItem>
                 <Badge>Productor</Badge>
-                Caso compartido por el senor Wilson
+                Caso compartido por el señor Wilson
               </MetaItem>
               <MetaItem>
                 <Badge>Frecuencia</Badge>
-                Aplicacion cada 15 dias
+                Aplicación cada 15 días
               </MetaItem>
               <MetaItem>
                 <Badge>Enfoque</Badge>
@@ -100,67 +123,57 @@ function Experiencias() {
 
           <DividerGlow />
 
+          {/* ── Historia ── */}
           <Section>
             <SectionHeading>
-              Experiencia en control de babosas en cultivos con Aguaji
+              Control de babosas en cultivos con Aguaji
             </SectionHeading>
             <StoryCard>
               <StoryText>
-                El metodo consiste en aplicar el control de babosas desde el
+                El método consiste en aplicar el control de babosas desde el
                 inicio hasta el final del ciclo de crecimiento. La constancia en
-                la aplicacion cada 15 dias ha permitido mantener a raya la plaga
-                y reducir el riesgo de danos acumulados en el cultivo.
+                la aplicación cada 15 días ha permitido mantener a raya la plaga
+                y reducir el riesgo de daños acumulados en el cultivo.
               </StoryText>
               <StoryText>
-                La experiencia del senor Wilson resalta la importancia de un
+                La experiencia del señor Wilson resalta la importancia de un
                 manejo preventivo sostenido en el tiempo. Este tipo de
-                intervencion ayuda a conservar la salud y el rendimiento del
-                cultivo, promoviendo un desarrollo optimo de las plantas en un
-                ecosistema mas equilibrado.
+                intervención ayuda a conservar la salud y el rendimiento del
+                cultivo, promoviendo un desarrollo óptimo de las plantas en un
+                ecosistema más equilibrado.
               </StoryText>
             </StoryCard>
 
             <Outcomes>
-              {outcomes.map((item, index) => (
-                <OutcomeChip key={index}>{item}</OutcomeChip>
+              {outcomes.map((item, i) => (
+                <OutcomeChip key={i}>
+                  <CheckCircle size={14} />
+                  {item}
+                </OutcomeChip>
               ))}
             </Outcomes>
           </Section>
 
+          {/* ── Claves técnicas ── */}
           <Section>
-            <SectionHeading>Claves tecnicas de esta practica</SectionHeading>
+            <SectionHeading>Claves técnicas de esta práctica</SectionHeading>
             <InsightGrid>
-              <InsightCard>
-                <InsightTitle>Prevencion continua</InsightTitle>
-                <InsightDescription>
-                  Iniciar temprano evita que la plaga escale y complique etapas
-                  criticas del cultivo.
-                </InsightDescription>
-              </InsightCard>
-
-              <InsightCard>
-                <InsightTitle>Ritmo de aplicacion</InsightTitle>
-                <InsightDescription>
-                  La frecuencia fija cada 15 dias mantiene cobertura estable y
-                  facilita seguimiento en campo.
-                </InsightDescription>
-              </InsightCard>
-
-              <InsightCard>
-                <InsightTitle>Control natural</InsightTitle>
-                <InsightDescription>
-                  Se prioriza el equilibrio biologico para reducir danos sin
-                  estrategias invasivas.
-                </InsightDescription>
-              </InsightCard>
+              {INSIGHTS.map((ins) => (
+                <InsightCard key={ins.title}>
+                  <InsightIconWrap $color={ins.bg}>{ins.icon}</InsightIconWrap>
+                  <InsightTitle>{ins.title}</InsightTitle>
+                  <InsightDescription>{ins.text}</InsightDescription>
+                </InsightCard>
+              ))}
             </InsightGrid>
           </Section>
 
+          {/* ── Videos ── */}
           <VideoSection>
             <SectionHeading>Videos de la experiencia</SectionHeading>
             <VideoGrid>
-              {videos.map((video, index) => (
-                <VideoCard key={index}>
+              {videos.map((video, i) => (
+                <VideoCard key={i}>
                   {video.type === 'youtube' ? (
                     <VideoEmbed
                       src={video.src}
@@ -179,6 +192,7 @@ function Experiencias() {
               ))}
             </VideoGrid>
           </VideoSection>
+
         </MainContent>
       </ExperienceContainer>
     </Layout>
