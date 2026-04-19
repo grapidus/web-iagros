@@ -352,7 +352,7 @@ export const CopyBtn = styled.button`
 
 // ── Author card ───────────────────────────────────────────────────────────────
 
-export const AuthorCard = styled.div`
+export const AuthorCard = styled.a`
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -360,21 +360,34 @@ export const AuthorCard = styled.div`
   background: #f7f4ef;
   border-radius: 14px;
   border: 1px solid rgba(28, 46, 35, 0.07);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+
+  &:hover {
+    background: #eef4ee;
+    box-shadow: 0 4px 16px rgba(28, 46, 35, 0.1);
+    transform: translateY(-2px);
+  }
 `;
 
 export const AuthorAvatar = styled.div`
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #1c2e23, #2e7d32);
+  background: #fff;
+  border: 2px solid rgba(28, 46, 35, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Fraunces', serif;
-  font-size: 1.2rem;
-  color: #fff;
-  font-weight: 700;
   flex-shrink: 0;
+  overflow: hidden;
+
+  img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+  }
 `;
 
 export const AuthorInfo = styled.div`

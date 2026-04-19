@@ -70,9 +70,9 @@ const EventOverlay: React.FC<EventOverlayProps> = ({
       <EventBar
         key={`event-${event.id}-day${day}`}
         color={event.color || '#4a90e2'}
-        isStart={isStart}
-        isEnd={isEnd}
-        isMiddle={!isStart && !isEnd}
+        $isStart={isStart}
+        $isEnd={isEnd}
+        $isMiddle={!isStart && !isEnd}
         onClick={(e) => {
           e.stopPropagation();
           onEventClick(event);

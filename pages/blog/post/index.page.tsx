@@ -1,9 +1,9 @@
+import { ArrowLeft, Calendar, Clock, ExternalLink, Link2 } from 'lucide-react';
 import React, { useState } from 'react';
-import { Calendar, Clock, ArrowLeft, Link2, ExternalLink } from 'lucide-react';
-import { getAssetPath } from '../../../utils/getAssetPath';
 import Layout from '../../../components/Layout/Layout';
-import BlogCard from '../components/BlogCard/BlogCard';
+import { getAssetPath } from '../../../utils/getAssetPath';
 import { useGetBlogsQuery } from '../api/blogApi';
+import BlogCard from '../components/BlogCard/BlogCard';
 import { useBlogDetail } from './hooks/useBlogDetail';
 import { useReadingProgress } from './hooks/useReadingProgress';
 import {
@@ -44,44 +44,42 @@ import {
   SidebarShareBtn,
   SidebarShareCol,
   SidebarTitle,
-  SidebarWidget,
+  SidebarWidget
 } from './styles/BlogPost.styles';
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString('es-CO', {
     day: 'numeric',
     month: 'long',
-    year: 'numeric',
+    year: 'numeric'
   });
 }
-
 
 const SOCIAL_NETWORKS = [
   {
     label: 'YouTube',
     img: getAssetPath('/images/social/youtube.png'),
     color: '#FF0000',
-    href: 'https://www.youtube.com/@iagrocolombia8729',
+    href: 'https://www.youtube.com/@iagrocolombia8729'
   },
   {
     label: 'Instagram',
     img: getAssetPath('/images/social/instagram.png'),
     color: '#E1306C',
-    href: 'https://www.instagram.com/iagroglobal/',
+    href: 'https://www.instagram.com/iagros.co/'
   },
   {
     label: 'Facebook',
     img: getAssetPath('/images/social/facebook.png'),
     color: '#1877F2',
-    href: (url: string) =>
-      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+    href: 'https://www.facebook.com/iagrosglobal'
   },
   {
     label: 'TikTok',
     img: getAssetPath('/images/social/tiktok.png'),
     color: '#010101',
-    href: 'https://www.tiktok.com/@iagroglobal',
-  },
+    href: 'https://www.tiktok.com/@iagroglobal'
+  }
 ];
 
 const BlogPostPage: React.FC = () => {
@@ -114,7 +112,6 @@ const BlogPostPage: React.FC = () => {
     <Layout>
       <ReadingProgressBar $progress={progress} />
       <PostPage>
-
         {/* ── Hero ── */}
         {isLoading ? (
           <PostSkeletonHero />
@@ -159,7 +156,13 @@ const BlogPostPage: React.FC = () => {
                 <p>El artículo que buscas no existe o fue eliminado.</p>
               </ErrorWrapper>
             ) : isLoading ? (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '1rem'
+                }}
+              >
                 {[100, 85, 95, 70, 90, 60, 80, 75].map((w, i) => (
                   <div
                     key={i}
@@ -167,14 +170,16 @@ const BlogPostPage: React.FC = () => {
                       height: i === 0 ? '28px' : '16px',
                       width: `${w}%`,
                       background: '#e8ede9',
-                      borderRadius: '6px',
+                      borderRadius: '6px'
                     }}
                   />
                 ))}
               </div>
             ) : blog ? (
               <>
-                <PostContent dangerouslySetInnerHTML={{ __html: blog.content ?? '' }} />
+                <PostContent
+                  dangerouslySetInnerHTML={{ __html: blog.content ?? '' }}
+                />
 
                 <PostDivider />
 
@@ -185,13 +190,19 @@ const BlogPostPage: React.FC = () => {
                     {SOCIAL_NETWORKS.map((net) => (
                       <ShareBtn
                         key={net.label}
-                        href={typeof net.href === 'function' ? net.href(pageUrl) : net.href}
+                        href={net.href}
                         target="_blank"
                         rel="noopener noreferrer"
                         $color={net.color}
                         aria-label={net.label}
                       >
-                        <img src={net.img} alt={net.label} width={18} height={18} style={{ objectFit: 'contain' }} />
+                        <img
+                          src={net.img}
+                          alt={net.label}
+                          width={18}
+                          height={18}
+                          style={{ objectFit: 'contain' }}
+                        />
                         {net.label}
                       </ShareBtn>
                     ))}
@@ -203,11 +214,22 @@ const BlogPostPage: React.FC = () => {
                 </ShareInline>
 
                 {/* Author card */}
-                <AuthorCard>
-                  <AuthorAvatar>IA</AuthorAvatar>
+                <AuthorCard
+                  href={`mailto:iagro@iagros.com?subject=${encodeURIComponent(`Pregunta sobre: ${pageTitle}`)}&body=${encodeURIComponent(`Hola equipo IAGROS,\n\nTengo una pregunta sobre el artículo "${pageTitle}":\n\n`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <AuthorAvatar>
+                    <img
+                      src={getAssetPath('/images/logos/logo-solo.png')}
+                      alt="IAGROS"
+                    />
+                  </AuthorAvatar>
                   <AuthorInfo>
                     <AuthorName>Equipo IAGROS</AuthorName>
-                    <AuthorRole>Equipo Editorial · IAGROS</AuthorRole>
+                    <AuthorRole>
+                      ¿Tienes dudas sobre este artículo? Escríbenos
+                    </AuthorRole>
                   </AuthorInfo>
                   <ExternalLink size={16} color="#c0ccc4" />
                 </AuthorCard>
@@ -223,13 +245,19 @@ const BlogPostPage: React.FC = () => {
                 {SOCIAL_NETWORKS.map((net) => (
                   <SidebarShareBtn
                     key={net.label}
-                    href={typeof net.href === 'function' ? net.href(pageUrl) : net.href}
+                    href={net.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     $color={net.color}
                     aria-label={net.label}
                   >
-                    <img src={net.img} alt={net.label} width={18} height={18} style={{ objectFit: 'contain' }} />
+                    <img
+                      src={net.img}
+                      alt={net.label}
+                      width={18}
+                      height={18}
+                      style={{ objectFit: 'contain' }}
+                    />
                     {net.label}
                   </SidebarShareBtn>
                 ))}
@@ -255,7 +283,7 @@ const BlogPostPage: React.FC = () => {
                     fontFamily: "'DM Sans', sans-serif",
                     fontSize: '0.82rem',
                     fontWeight: 600,
-                    color: '#ee7007',
+                    color: '#ee7007'
                   }}
                 >
                   {blog.category}

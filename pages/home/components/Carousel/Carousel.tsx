@@ -41,7 +41,7 @@ const Carousel: React.FC<CarouselProps> = ({
     <CarouselContainer>
       <CarouselWrapper>
         {items.map((item, index) => (
-          <CarouselSlide key={item.id} isActive={index === currentSlide}>
+          <CarouselSlide key={item.id} $isActive={index === currentSlide}>
             <CarouselImage src={item.image} alt={item.alt} />
             <CarouselOverlay />
           </CarouselSlide>
@@ -68,7 +68,7 @@ const Carousel: React.FC<CarouselProps> = ({
           {items.map((_, index) => (
             <CarouselDot
               key={index}
-              isActive={index === currentSlide}
+              $isActive={index === currentSlide}
               onClick={() => handleControlInteraction(() => goToSlide(index))}
             />
           ))}

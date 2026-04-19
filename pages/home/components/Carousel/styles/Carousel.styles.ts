@@ -23,15 +23,15 @@ const fadeIn = keyframes`
   }
 `;
 
-export const CarouselSlide = styled.div<{ isActive: boolean }>`
+export const CarouselSlide = styled.div<{ $isActive: boolean }>`
   position: relative;
   width: 100%;
-  display: ${({ isActive }) => (isActive ? 'block' : 'none')};
-  opacity: ${({ isActive }) => (isActive ? 1 : 0)};
+  display: ${({ $isActive }) => ($isActive ? 'block' : 'none')};
+  opacity: ${({ $isActive }) => ($isActive ? 1 : 0)};
   transition: opacity 0.45s ease;
 
-  ${({ isActive }) =>
-    isActive &&
+  ${({ $isActive }) =>
+    $isActive &&
     css`
       animation: ${fadeIn} 0.8s ease forwards;
     `}
@@ -112,12 +112,12 @@ export const CarouselDots = styled.div`
   z-index: 5;
 `;
 
-export const CarouselDot = styled.button<{ isActive: boolean }>`
+export const CarouselDot = styled.button<{ $isActive: boolean }>`
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: ${({ isActive }) =>
-    isActive ? '#FFFFFF' : 'rgba(255, 255, 255, 0.5)'};
+  background-color: ${({ $isActive }) =>
+    $isActive ? '#FFFFFF' : 'rgba(255, 255, 255, 0.5)'};
   border: none;
   padding: 0;
   cursor: pointer;

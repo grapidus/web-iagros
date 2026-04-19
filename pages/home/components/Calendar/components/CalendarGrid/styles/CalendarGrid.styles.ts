@@ -119,10 +119,10 @@ export const DaysGrid = styled.div`
 `;
 
 export const DayCell = styled.div<{
-  isCurrentMonth?: boolean;
-  isToday?: boolean;
-  isSelected?: boolean;
-  hasEvents?: boolean;
+  $isCurrentMonth?: boolean;
+  $isToday?: boolean;
+  $isSelected?: boolean;
+  $hasEvents?: boolean;
 }>`
   position: relative;
   height: 0;
@@ -142,12 +142,12 @@ export const DayCell = styled.div<{
     border-radius: 8px;
   }
   background-color: ${(props) =>
-    props.isSelected ? '#e3f2fd' : props.isToday ? '#f5f5f5' : 'white'};
-  opacity: ${(props) => (props.isCurrentMonth ? 1 : 0.5)};
+    props.$isSelected ? '#e3f2fd' : props.$isToday ? '#f5f5f5' : 'white'};
+  opacity: ${(props) => (props.$isCurrentMonth ? 1 : 0.5)};
   cursor: pointer;
   transition: all 0.2s ease;
   box-shadow: ${(props) =>
-    props.hasEvents
+    props.$hasEvents
       ? '0 2px 8px rgba(0,0,0,0.1)'
       : 'none'}; /* Sombra suave para días con eventos */
 
@@ -183,11 +183,11 @@ export const DayCell = styled.div<{
 
   .day-number {
     text-align: center;
-    font-weight: ${(props) => (props.isToday ? 'bold' : 'normal')};
+    font-weight: ${(props) => (props.$isToday ? 'bold' : 'normal')};
     margin-bottom: 4px; /* Menos espacio en móvil */
     font-size: 0.9rem; /* Número más pequeño en móvil */
     color: ${(props) =>
-      props.isToday ? '#4a90e2' : '#333'}; /* Color destacado para hoy */
+      props.$isToday ? '#4a90e2' : '#333'}; /* Color destacado para hoy */
 
     @media ${device.sm} {
       margin-bottom: 6px;

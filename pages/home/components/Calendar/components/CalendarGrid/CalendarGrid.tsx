@@ -80,7 +80,7 @@ const CalendarGrid: React.FC<CalendarGridProps> = ({
           return (
             <DayCell
               key={`prev-${day}`}
-              isCurrentMonth={false}
+              $isCurrentMonth={false}
               onClick={() => handleDateClick(day, -1)}
             >
               <div className="day-content">
@@ -97,9 +97,9 @@ const CalendarGrid: React.FC<CalendarGridProps> = ({
                       <EventBar
                         key={`event-${eventData.event.id}-day-${eventData.day}-${eventData.monthOffset}`}
                         color={eventData.event.color || '#4a90e2'}
-                        isStart={eventData.isStart}
-                        isEnd={eventData.isEnd}
-                        isMiddle={eventData.isMiddle}
+                        $isStart={eventData.isStart}
+                        $isEnd={eventData.isEnd}
+                        $isMiddle={eventData.isMiddle}
                         onClick={eventData.handleEventClick}
                         title={eventData.event.title}
                       >
@@ -134,10 +134,10 @@ const CalendarGrid: React.FC<CalendarGridProps> = ({
           return (
             <DayCell
               key={`current-${day}`}
-              isCurrentMonth={true}
-              isToday={isToday}
-              isSelected={isSelected}
-              hasEvents={dayEvents.length > 0}
+              $isCurrentMonth={true}
+              $isToday={isToday}
+              $isSelected={isSelected}
+              $hasEvents={dayEvents.length > 0}
               onClick={() => handleDateClick(day)}
             >
               <div className="day-content">
@@ -156,9 +156,9 @@ const CalendarGrid: React.FC<CalendarGridProps> = ({
                       <EventBar
                         key={`event-${eventData.event.id}-day-${eventData.day}-${eventData.monthOffset}`}
                         color={eventData.event.color || '#4a90e2'}
-                        isStart={eventData.isStart}
-                        isEnd={eventData.isEnd}
-                        isMiddle={eventData.isMiddle}
+                        $isStart={eventData.isStart}
+                        $isEnd={eventData.isEnd}
+                        $isMiddle={eventData.isMiddle}
                         onClick={eventData.handleEventClick}
                         title={eventData.event.title}
                       >
@@ -192,7 +192,7 @@ const CalendarGrid: React.FC<CalendarGridProps> = ({
           return (
             <DayCell
               key={`next-${day}`}
-              isCurrentMonth={false}
+              $isCurrentMonth={false}
               onClick={() => handleDateClick(day, 1)}
             >
               <div className="day-content">
@@ -209,9 +209,9 @@ const CalendarGrid: React.FC<CalendarGridProps> = ({
                       <EventBar
                         key={`event-${eventData.event.id}-day-${eventData.day}-${eventData.monthOffset}`}
                         color={eventData.event.color || '#4a90e2'}
-                        isStart={eventData.isStart}
-                        isEnd={eventData.isEnd}
-                        isMiddle={eventData.isMiddle}
+                        $isStart={eventData.isStart}
+                        $isEnd={eventData.isEnd}
+                        $isMiddle={eventData.isMiddle}
                         onClick={eventData.handleEventClick}
                         title={eventData.event.title}
                       >

@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
                 />
               </SocialLink>
               <SocialLink
-                href="https://www.instagram.com/iagroglobal/"
+                href="https://www.instagram.com/iagros.co/"
                 target="_blank"
                 rel="noopener noreferrer"
               >

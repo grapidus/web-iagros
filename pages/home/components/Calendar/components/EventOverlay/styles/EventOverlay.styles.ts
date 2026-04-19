@@ -3,9 +3,9 @@ import { device } from '../../../../../../../constants/breakpoints';
 
 export const EventBar = styled.div<{
   color: string;
-  isStart?: boolean;
-  isEnd?: boolean;
-  isMiddle?: boolean;
+  $isStart?: boolean;
+  $isEnd?: boolean;
+  $isMiddle?: boolean;
 }>`
   height: 
   min-height: 16px; 
@@ -40,9 +40,9 @@ export const EventBar = styled.div<{
     padding: 4px 8px;
   }
   border-radius: ${(props) => {
-    if (props.isStart && props.isEnd) return '12px';
-    if (props.isStart) return '12px 0 0 12px';
-    if (props.isEnd) return '0 12px 12px 0';
+    if (props.$isStart && props.$isEnd) return '12px';
+    if (props.$isStart) return '12px 0 0 12px';
+    if (props.$isEnd) return '0 12px 12px 0';
     return '0';
   }};
   cursor: pointer;
