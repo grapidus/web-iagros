@@ -1,237 +1,208 @@
 import { Button } from '@mui/material';
-import styled from 'styled-components';
-import { device } from '../../../constants/breakpoints';
+import styled, { keyframes } from 'styled-components';
+import { device, size } from '../../../constants/breakpoints';
 import theme from '../../../styles/theme';
 
+const fadeUp = keyframes`
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+`;
+
+/* ── Page wrapper ───────────────────────────────────────────────────────── */
+
 export const ContactContainer = styled.div`
-  min-height: 100vh;
-  background: radial-gradient(
-      circle at 20% 80%,
-      rgba(97, 206, 112, 0.15) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 80% 20%,
-      rgba(238, 112, 7, 0.15) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 40% 40%,
-      rgba(97, 206, 112, 0.1) 0%,
-      transparent 50%
-    ),
-    linear-gradient(
-      135deg,
-      ${theme.colors.background} 0%,
-      #f8f8f8 50%,
-      #f0f0f0 100%
-    );
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(
-      from 0deg at 50% 50%,
-      rgba(97, 206, 112, 0.03) 0deg,
-      rgba(238, 112, 7, 0.02) 90deg,
-      rgba(97, 206, 112, 0.03) 180deg,
-      rgba(238, 112, 7, 0.02) 270deg,
-      rgba(97, 206, 112, 0.03) 360deg
-    );
-    animation: rotate 60s linear infinite;
-    z-index: 0;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -20%;
-    right: -20%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(
-      circle,
-      rgba(238, 112, 7, 0.05) 0%,
-      transparent 70%
-    );
-    border-radius: 50%;
-    animation: pulse 8s ease-in-out infinite;
-    z-index: 0;
-  }
-
-  @keyframes rotate {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  @keyframes pulse {
-    0%,
-    100% {
-      transform: scale(0.8);
-      opacity: 0.5;
-    }
-    50% {
-      transform: scale(1.2);
-      opacity: 0.8;
-    }
-  }
+  width: 100%;
+  background: #fafaf8;
 `;
 
 export const ContactInnerContainer = styled.div`
-  position: relative;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 20px;
-  z-index: 1;
+  padding: 4rem 1.5rem 6rem;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 60px;
-  min-height: 100vh;
-  align-content: center;
+  gap: 3rem;
+  animation: ${fadeUp} 0.7s ease both;
+
+  @media (min-width: ${size.md}px) {
+    padding: 5rem 2rem 7rem;
+  }
 
   @media ${device.lg} {
-    grid-template-columns: 1fr 1.2fr;
-    gap: 80px;
-    align-items: center;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 5rem;
+    align-items: start;
   }
 `;
+
+/* ── Info panel ─────────────────────────────────────────────────────────── */
 
 export const ContactInfo = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  position: relative;
-  z-index: 2;
-
-  @media (max-width: ${992 - 1}px) {
-    text-align: center;
-    margin-bottom: 40px;
-  }
+  gap: 1.5rem;
 `;
 
 export const ContactHeader = styled.div`
-  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
+export const EyebrowLabel = styled.span`
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: ${theme.colors.primary};
+  background: rgba(238, 112, 7, 0.08);
+  border: 1px solid rgba(238, 112, 7, 0.2);
+  border-radius: 100px;
+  padding: 0.35rem 1rem;
+  width: fit-content;
 `;
 
 export const Title = styled.h1`
-  color: ${theme.colors.text};
-  font-size: 3.5rem;
-  font-weight: 800;
-  margin-bottom: 20px;
-  font-family: inherit;
-  letter-spacing: -1px;
-  line-height: 1.1;
-  position: relative;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 1.4rem + 2.2vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #1a2e1d;
+  margin: 0;
 
-  background: linear-gradient(
-    135deg,
-    ${theme.colors.secondary} 0%,
-    #4caf50 50%,
-    ${theme.colors.secondary} 100%
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  @media (max-width: ${768 - 1}px) {
-    font-size: 2.5rem;
+  span {
+    color: ${theme.colors.primary};
   }
 `;
 
 export const Description = styled.p`
-  color: ${theme.colors.text};
-  font-size: 1.2rem;
-  line-height: 1.7;
-  margin-bottom: 30px;
-  font-weight: 400;
-  opacity: 0.8;
-
-  @media (max-width: ${768 - 1}px) {
-    font-size: 1.1rem;
-  }
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #4a5e50;
+  margin: 0;
+  max-width: 44ch;
 `;
 
-export const ContactFeatures = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-top: 40px;
-`;
+/* ── Feature items ──────────────────────────────────────────────────────── */
 
 export const FeatureItem = styled.div`
   display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 15px;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(97, 206, 112, 0.2);
-  transition: all 0.3s ease;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid rgba(28, 46, 35, 0.07);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 
   &:hover {
-    transform: translateX(10px);
-    background: rgba(255, 255, 255, 0.9);
-    border-color: ${theme.colors.primary};
-  }
-
-  @media (max-width: ${992 - 1}px) {
-    justify-content: center;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09);
   }
 `;
 
-export const FeatureIcon = styled.div`
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-  background: ${theme.colors.primary};
+export const FeatureIcon = styled.div<{ $color?: string }>`
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: ${({ $color }) => $color ?? `linear-gradient(135deg, #c05e00, ${theme.colors.primary})`};
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  color: white;
-  box-shadow: 0 4px 15px rgba(238, 112, 7, 0.3);
+  flex-shrink: 0;
 `;
 
 export const FeatureText = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
   h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a2e1d;
     margin: 0;
-    color: ${theme.colors.primary};
-    font-size: 1.1rem;
-    font-weight: 600;
   }
 
   p {
-    margin: 4px 0 0 0;
-    color: ${theme.colors.text};
-    opacity: 0.7;
-    font-size: 0.9rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    color: #5a7060;
+    margin: 0;
+    line-height: 1.5;
   }
 `;
 
+/* ── Contact info cards ─────────────────────────────────────────────────── */
+
+export const ContactInfoGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+`;
+
+export const ContactInfoCard = styled.a`
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid rgba(28, 46, 35, 0.07);
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    border-color: rgba(238, 112, 7, 0.3);
+    box-shadow: 0 6px 20px rgba(238, 112, 7, 0.08);
+  }
+`;
+
+export const ContactInfoDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid rgba(28, 46, 35, 0.07);
+`;
+
+export const InfoLabel = styled.span`
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: ${theme.colors.primary};
+`;
+
+export const InfoValue = styled.span`
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  color: #1a2e1d;
+  font-weight: 500;
+  line-height: 1.4;
+`;
+
+/* ── Form section ───────────────────────────────────────────────────────── */
+
 export const FormSection = styled.div`
   position: relative;
-  z-index: 2;
 `;
 
 export const FormContainer = styled.div`
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
+  background: #fff;
   border-radius: 24px;
-  padding: 50px 40px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1), 0 8px 25px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 2.5rem 2rem;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(28, 46, 35, 0.07);
   position: relative;
   overflow: hidden;
 
@@ -241,123 +212,28 @@ export const FormContainer = styled.div`
     top: 0;
     left: 0;
     right: 0;
-    height: 5px;
-    background: linear-gradient(
-      90deg,
-      ${theme.colors.primary} 0%,
-      #ff8f00 25%,
-      ${theme.colors.primary} 50%,
-      #ff8f00 75%,
-      ${theme.colors.primary} 100%
-    );
-    background-size: 200% 100%;
-    animation: shimmer 3s ease-in-out infinite;
+    height: 4px;
+    background: linear-gradient(90deg, ${theme.colors.primary}, ${theme.colors.secondary});
+    border-radius: 24px 24px 0 0;
   }
 
-  &::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 100%;
-    height: 200%;
-    background: conic-gradient(
-      from 0deg,
-      transparent,
-      rgba(97, 206, 112, 0.03),
-      transparent
-    );
-    animation: rotate 20s linear infinite;
-    pointer-events: none;
-  }
-
-  @keyframes shimmer {
-    0%,
-    100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-
-  @media (max-width: ${768 - 1}px) {
-    padding: 30px 25px;
-    border-radius: 20px;
+  @media (min-width: ${size.md}px) {
+    padding: 3rem 2.5rem;
   }
 `;
 
-export const StyledSubmitButton = styled(Button)`
-  background: linear-gradient(
-    135deg,
-    ${theme.colors.secondary} 0%,
-    #4caf50 50%,
-    ${theme.colors.secondary} 100%
-  ) !important;
-  color: white !important;
-  border: none !important;
-  border-radius: 16px !important;
-  padding: 18px 40px !important;
-  font-size: 1.1rem !important;
-  font-weight: 600 !important;
-  text-transform: none !important;
-  letter-spacing: 0.3px !important;
-  box-shadow: 0 8px 25px rgba(97, 206, 112, 0.4), 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.3),
-      transparent
-    );
-    transition: left 0.6s;
-  }
-
-  &:hover {
-    transform: translateY(-3px) scale(1.05) !important;
-    box-shadow: 0 15px 35px rgba(97, 206, 112, 0.5),
-      0 8px 20px rgba(0, 0, 0, 0.2) !important;
-
-    &::before {
-      left: 100%;
-    }
-  }
-
-  &:active {
-    transform: translateY(-1px) scale(1.02) !important;
-  }
-
-  &:disabled {
-    background: linear-gradient(
-      135deg,
-      ${theme.colors.background} 0%,
-      #ccc 100%
-    ) !important;
-    color: ${theme.colors.text} !important;
-    opacity: 0.6;
-    transform: none !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
-
-    &::before {
-      display: none;
-    }
-  }
+export const FormTitle = styled.h2`
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a2e1d;
+  margin: 0 0 2rem;
 `;
 
 export const FormGrid = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin: -16px;
+  margin: -12px;
 `;
 
 export const FormRow = styled.div`
@@ -373,29 +249,59 @@ interface FormColumnProps {
 export const FormColumn = styled.div<FormColumnProps>`
   flex: 0 0 100%;
   max-width: 100%;
-  padding: 16px;
+  padding: 12px;
 
   @media ${device.sm} {
-    flex: ${(props) => (props.half ? '0 0 50%' : '0 0 100%')};
-    max-width: ${(props) => (props.half ? '50%' : '100%')};
+    flex: ${({ half }) => (half ? '0 0 50%' : '0 0 100%')};
+    max-width: ${({ half }) => (half ? '50%' : '100%')};
   }
 `;
 
 export const ButtonWrapper = styled.div`
-  text-align: center;
-  margin-top: 40px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(97, 206, 112, 0.2);
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(28, 46, 35, 0.08);
+`;
+
+export const StyledSubmitButton = styled(Button)`
+  background: linear-gradient(135deg, ${theme.colors.primary}, #ff9a3c) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 0.875rem 2.5rem !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  box-shadow: 0 4px 20px rgba(238, 112, 7, 0.35) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  width: 100%;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 28px rgba(238, 112, 7, 0.45) !important;
+  }
+
+  &:active {
+    transform: translateY(0) !important;
+  }
+
+  &:disabled {
+    background: #e8ede9 !important;
+    color: #9ab09e !important;
+    box-shadow: none !important;
+  }
 `;
 
 export const FormNote = styled.div`
-  margin-top: 20px;
+  margin-top: 1rem;
   text-align: center;
 `;
+
 export const NoteText = styled.p`
-  font-size: 0.85rem;
-  color: ${theme.colors.text};
-  opacity: 0.6;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: #8aa48e;
   margin: 0;
-  font-weight: 300;
 `;
