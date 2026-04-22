@@ -3,7 +3,7 @@ import {
   AgroInsumosCategory,
 } from "../models/agroInsumos.model";
 
-const BASE_URL = "http://localhost:3001/api/iagros/categories";
+const BASE_URL = "http://localhost:3000/api/iagros/categories";
 
 const handleResponse = async <T>(response: Response): Promise<T> => {
   const json = await response.json();
