@@ -1,6 +1,7 @@
-import { useMemo } from 'react';
+import { useMemo } from "react";
+import useAgroInsumos from "../useAgroInsumos/useAgroInsumos";
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export interface SubMenuItem {
   label: string;
@@ -14,63 +15,60 @@ export interface MenuItem {
 }
 
 export const useMenuNavigation = () => {
+  const { categories } = useAgroInsumos();
   const menuItems = useMemo<MenuItem[]>(
     () => [
-      { label: 'Inicio', href: `${basePath}/` },
+      { label: "Inicio", href: `${basePath}/` },
       {
-        label: 'Nuestra Organización',
-        href: '#',
+        label: "Nuestra Organización",
+        href: "#",
         subItems: [
           {
-            label: 'Nuestra Historia',
-            href: `${basePath}/history`
+            label: "Nuestra Historia",
+            href: `${basePath}/history`,
           },
           {
-            label: 'Misión',
-            href: `${basePath}/mission`
+            label: "Misión",
+            href: `${basePath}/mission`,
           },
           {
-            label: 'Visión',
-            href: `${basePath}/vision`
-          }
-        ]
+            label: "Visión",
+            href: `${basePath}/vision`,
+          },
+        ],
       },
       {
-        label: 'Agro Insumos',
+        label: "Agro Insumos",
         href: `${basePath}/agro-insumos`,
-        subItems: [
-          {
-            label: 'Fertilizantes',
-            href: `${basePath}/agro-insumos/fertilizantes`
-          },
-          { label: 'Pesticidas', href: `${basePath}/agro-insumos/pesticidas` },
-          { label: 'Semillas', href: `${basePath}/agro-insumos/semillas` },
-          {
-            label: 'Herramientas',
-            href: `${basePath}/agro-insumos/herramientas`
-          }
-        ]
+        subItems: categories.map((category) => ({
+          label: category.name,
+          href: `${basePath}/agro-insumos/${category.slug}`,
+        })),
       },
       {
-        label: 'Experiencias',
+        label: "Experiencias",
         href: `${basePath}/experiencias`,
         subItems: [
           {
-            label: 'Galería de Imágenes',
-            href: `${basePath}/gallery`
-          }
-        ]
+            label: "Galería de Imágenes",
+            href: `${basePath}/gallery`,
+          },
+        ],
       },
-      { label: 'Blog', href: `${basePath}/blog` },
+      { label: "Blog", href: `${basePath}/blog` },
       {
-        label: 'Escríbanos',
-        href: `${basePath}/contact`
-      }
+        label: "Escríbanos",
+        href: `${basePath}/contact`,
+      },
+      {
+        label: "Intranet",
+        href: `${basePath}/intranet`,
+      },
     ],
-    []
+    [categories],
   );
 
   return {
-    menuItems
+    menuItems,
   };
 };
